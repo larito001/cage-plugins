@@ -108,8 +108,8 @@
     },
     {
       "name": "blender",
-      "version": "0.1.1",
-      "description": "Works with an open Blender: reads the scene, creates and changes objects and materials, runs Python in Blender and captures the viewport. Needs Blender with the included add-on.",
+      "version": "0.1.2",
+      "description": "Lets the AI inside the isolated environment control Blender running on the host computer outside it: read scenes, edit objects and materials, run Blender Python and capture the viewport. Requires Blender running on the host with the included add-on enabled.",
       "permissions": [
         "commands",
         "files",
@@ -122,11 +122,11 @@
       "i18n": {
         "zh-CN": {
           "displayName": "Blender",
-          "description": "操作本机已打开的 Blender：读取场景、创建和修改物体与材质、在 Blender 中运行 Python 以及截取视口画面。需在 Blender 中安装随附插件。"
+          "description": "由隔离环境内的 AI 调用，操作环境外主机上已打开的 Blender：读取场景、修改物体与材质、执行 Blender Python、截取视口。需在主机 Blender 中安装并启用配套 add-on，不是在环境内运行 Blender。"
         },
         "zh-TW": {
           "displayName": "Blender",
-          "description": "操作本機已開啟的 Blender：讀取場景、建立與修改物件和材質、在 Blender 中執行 Python 以及擷取視埠畫面。需在 Blender 中安裝隨附外掛。"
+          "description": "由隔離環境內的 AI 呼叫，操作環境外主機上已開啟的 Blender：讀取場景、修改物件與材質、執行 Blender Python、擷取視埠。需在主機 Blender 中安裝並啟用配套 add-on，不是在環境內執行 Blender。"
         },
         "ru": {
           "displayName": "Blender",
@@ -216,9 +216,9 @@
         "url": "https://github.com/ahujasid/blender-mcp"
       },
       "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/blender/icon.svg",
-      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/blender-0.1.1.tar.gz",
-      "sha256": "bcc35935154ccdd4451cdfc7af112a3e51dc9b34b11d1fd1aded37e1546e308c",
-      "bytes": 20666
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/blender-0.1.2.tar.gz",
+      "sha256": "03b0e1f3923fe8f1bdcd09d891815aef2078cdd3072e5e179d5e76c8a8da9dff",
+      "bytes": 20754
     },
     {
       "name": "computer-use",

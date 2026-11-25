@@ -1,8 +1,8 @@
 {
   "name": "blender",
   "displayName": "Blender",
-  "version": "0.1.1",
-  "description": "Works with an open Blender: reads the scene, creates and changes objects and materials, runs Python in Blender and captures the viewport. Needs Blender with the included add-on.",
+  "version": "0.1.2",
+  "description": "Lets the AI inside the isolated environment control Blender running on the host computer outside it: read scenes, edit objects and materials, run Blender Python and capture the viewport. Requires Blender running on the host with the included add-on enabled.",
   "icon": "icon.svg",
   "engines": {
     "cage": ">=0.1.8"

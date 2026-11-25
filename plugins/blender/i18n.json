@@ -1,11 +1,11 @@
 {
   "zh-CN": {
     "displayName": "Blender",
-    "description": "操作本机已打开的 Blender：读取场景、创建和修改物体与材质、在 Blender 中运行 Python 以及截取视口画面。需在 Blender 中安装随附插件。"
+    "description": "由隔离环境内的 AI 调用，操作环境外主机上已打开的 Blender：读取场景、修改物体与材质、执行 Blender Python、截取视口。需在主机 Blender 中安装并启用配套 add-on，不是在环境内运行 Blender。"
   },
   "zh-TW": {
     "displayName": "Blender",
-    "description": "操作本機已開啟的 Blender：讀取場景、建立與修改物件和材質、在 Blender 中執行 Python 以及擷取視埠畫面。需在 Blender 中安裝隨附外掛。"
+    "description": "由隔離環境內的 AI 呼叫，操作環境外主機上已開啟的 Blender：讀取場景、修改物件與材質、執行 Blender Python、擷取視埠。需在主機 Blender 中安裝並啟用配套 add-on，不是在環境內執行 Blender。"
   },
   "ru": {
     "displayName": "Blender",

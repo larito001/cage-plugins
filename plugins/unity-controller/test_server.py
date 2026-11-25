@@ -1,4 +1,5 @@
 import os
+import json
 import unittest
 from unittest.mock import patch
 import server
@@ -26,7 +27,7 @@ class PolicyTests(unittest.TestCase):
     def test_read_actions(self):
         c = server.Unity()
         c.check("manage_scene", {"action": "get_hierarchy"})
-        c.check("read_console", {"action": "get"})
+        c.check("manage_camera", {"action": "list_cameras"})
         c.check("find_gameobjects", {"search_term": "Camera"})
 
     def test_full_control_still_cannot_change_instance_or_forward_batches(self):
@@ -65,7 +66,10 @@ class PolicyTests(unittest.TestCase):
         c = server.Unity()
         for tool, actions in server.READ.items():
             for action in actions or [None]:
-                c.check(tool, {"action": action} if action else {})
+                args = {"action": action} if action else {}
+                if tool == "manage_asset" and action == "get_info":
+                    args["path"] = "Assets/Example.mat"
+                c.check(tool, args)
             if actions:
                 for action in (None, "execute", "new_upstream_action"):
                     with self.subTest(tool=tool, action=action), self.assertRaises(ValueError):
@@ -84,7 +88,8 @@ class PolicyTests(unittest.TestCase):
                 c.check("manage_asset", {"action": "search", "generate_preview": value})
 
     def test_resource_templates(self):
-        self.assertTrue(server.allowed_resource("mcpforunity://scene/gameobject/-120/components"))
+        self.assertTrue(server.allowed_resource("mcpforunity://scene/gameobject/-120"))
+        self.assertFalse(server.allowed_resource("mcpforunity://scene/gameobject/-120/components"))
         for uri in ("mcpforunity://scene/gameobject/1/../../other", "mcpforunity://scene/gameobject/1?instance=other", "file:///secret"):
             self.assertFalse(server.allowed_resource(uri))
 
@@ -96,7 +101,7 @@ class PolicyTests(unittest.TestCase):
         replies = [{}, {}, {"contents": [{"text": '{"instances":[{"id":"FoodHunt@abc","name":"FoodHunt","session_id":"hidden"}]}'}]}]
         with patch.object(c, "rpc", side_effect=replies) as rpc:
             result = c.connect(discovery=True)
-            self.assertEqual(result[0]["id"], "FoodHunt@abc")
+            self.assertEqual(result, [{"id":"abc"}])
             self.assertNotIn("session_id", result[0])
             self.assertEqual(rpc.call_count, 3)
 
@@ -150,9 +155,67 @@ class PolicyTests(unittest.TestCase):
             self.assertNotIn("auto_repair", rpc.call_args.args[1]["arguments"])
 
     def test_new_resources_are_exact_allowlist_entries(self):
-        for uri in ("mcpforunity://rendering/stats", "mcpforunity://scene/volumes", "mcpforunity://tool-groups", "mcpforunity://custom-tools", "mcpforunity://pipeline/renderer-features"):
+        for uri in server.RESOURCES:
             self.assertTrue(server.allowed_resource(uri))
             self.assertFalse(server.allowed_resource(uri + "?action=write"))
+        for uri in ("editor/windows", "custom-tools", "menu-items", "project/info", "tool-groups"):
+            self.assertFalse(server.allowed_resource("mcpforunity://" + uri))
+
+    def test_private_sources_rejected_before_contact(self):
+        denied = [
+            ("manage_packages", {"action": "list_registries"}), ("read_console", {"action":"get"}),
+            ("manage_script", {"action":"read"}), ("find_in_file", {"uri":"Assets/File.cs"}),
+            ("manage_ui", {"action":"read"}), ("manage_asset", {"action":"get_info","path":"Assets/notes.pdf"}),
+            ("manage_asset", {"action":"search","filter_type":"TextAsset"}),
+            ("manage_camera", {"action":"set_body", "properties":{"bodyType":"CustomComponent"}}),
+            ("manage_graphics", {"action":"volume_create_profile","path":"Assets/script.cs"}),
+            ("manage_animation", {"action":"clip_create","properties":{"clipPath":"Assets/Test.anim"}}),
+            ("manage_profiler", {"action":"profiler_status","search_path":"other"}),
+            ("manage_ui", {"action":"update_panel_settings","path":"Assets/p.asset","settings":{"themeStyleSheet":"other"}}),
+        ]
+        with patch.object(server.Unity,"rpc") as rpc:
+            for t,a in denied:
+                with self.subTest(t=t,a=a), self.assertRaises(ValueError):
+                    server.call("unity_controller_batch",{"calls":[{"tool":t,"arguments":a}]})
+            rpc.assert_not_called()
+
+    def test_new_project_edits(self):
+        c=server.Unity()
+        for t,a in [
+            ("manage_animation",{"action":"clip_create","clip_path":"Assets/A.anim"}),
+            ("manage_animation",{"action":"clip_set_curve","clip_path":"Assets/A.anim","properties":{"type":"Transform","propertyPath":"localScale.x","keys":[{"time":0,"value":1}]}}),
+            ("manage_ui",{"action":"create_panel_settings","path":"Assets/Panel.asset"}),
+            ("manage_physics",{"action":"create_physics_material","name":"Ice","path":"Assets/Physics"}),
+            ("manage_graphics",{"action":"volume_create_profile","path":"Assets/Volume.asset"}),
+            ("manage_camera",{"action":"add_extension","properties":{"extensionType":"CinemachineConfiner2D"}}),
+        ]:
+            with self.subTest(t=t): c.check(t,a)
+
+    def test_output_privacy_all_relay_paths(self):
+        marker = "internal.example.test"
+        payload = {"success":True, "message":marker, "data":{"name":marker,"path":marker,
+                   "rootCount":4,"items":[{"id":2,"name":marker,marker:7,"properties":{"ip":marker}}]}}
+        text = json.dumps(payload)
+        raw = {"structuredContent":payload, "_meta":{"host":marker},
+               "content":[{"type":"text","text":text},{"type":"image","data":marker}],
+               "contents":[{"text":text, "uri":marker}]}
+        for raw_result in (raw,{k:v for k,v in raw.items() if k != "structuredContent"}):
+            with patch.object(server.Unity,"connect"), patch.object(server.Unity,"rpc",return_value=raw_result):
+                args={"tool":"manage_scene","arguments":{"action":"get_active"}}
+                for method,params in (("unity_controller_call",args),("unity_controller_batch",{"calls":[args]}),
+                                      ("unity_controller_read",{"uri":"mcpforunity://scene/cameras"})):
+                    result=server.call(method,params)
+                    self.assertNotIn(marker,json.dumps(result))
+                    self.assertIn("rootCount",json.dumps(result))
+        self.assertNotIn(marker,json.dumps(server.project_reply({"isError":True,"content":[{"text":marker}]})))
+
+    def test_catalog_uses_packaged_schemas(self):
+        upstream={"tools":[{"name":"manage_asset","inputSchema":{"description":"secret-host.example"}}]}
+        with patch.object(server.Unity,"connect"),patch.object(server.Unity,"rpc",return_value=upstream):
+            catalog=server.call("unity_controller_catalog",{})
+        self.assertNotIn("secret-host",json.dumps(catalog))
+        self.assertIn("filter_type",json.dumps(catalog))
+
 
 
 class DescriptionTests(unittest.TestCase):

@@ -1,8 +1,8 @@
 {
   "name": "unity-controller",
   "displayName": "Unity Controller",
-  "version": "0.4.0",
-  "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource.",
+  "version": "0.5.0",
+  "description": "Edit scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation clips and controllers, VFX, physics, rendering and UI in a selected external Unity project. Supports scene repair, undo/redo, clearing logs, project-local captures and batches of 20. Returns selected project numbers, IDs and flags. Blocks documents, Blender, host network and application queries, external services and arbitrary code. See the operation list for individual actions.",
   "icon": "icon.svg",
   "engines": {
     "cage": ">=0.2.0"
@@ -38,8 +38,8 @@
       },
       {
         "id": "instance",
-        "title": "Unity instance (Name@hash)",
-        "description": "Use unity_controller_instances to obtain Name@hash. Required for project queries; leave empty only to list instances.",
+        "title": "Unity project hash or Name@hash",
+        "description": "Copy the project hash from unity_controller_instances. An existing exact Name@hash remains valid.",
         "type": "string",
         "env": "UNITY_CONTROLLER_INSTANCE",
         "required": false

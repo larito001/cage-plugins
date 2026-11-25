@@ -1,4 +1,4 @@
-# Unity Controller 0.4.0
+# Unity Controller 0.5.0
 
 Host-side stdio MCP adapter for an existing Unity MCP Streamable HTTP service.
 Requires Python 3.10+ available as `python`. No startup dependencies are downloaded.
@@ -12,12 +12,10 @@ Optional Bearer token uses Cage encrypted secret settings. Redirects are disable
 inherited HTTP proxy variables are ignored.
 
 The instance setting may be empty ONLY to run `unity_controller_instances`.
-Copy the returned exact `Name@hash` into the instance setting to enable project
-queries. No automatic selection or fallback occurs when an instance is missing.
-The hash comes from Unity MCP; do not calculate it yourself.
+Copy the returned project hash into the instance setting. Existing exact Name@hash settings also work. Ambiguous or missing selections are rejected.
 
-## Project editing
+## Project operations
 
-Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource.
+Edit scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation clips and controllers, VFX, physics, rendering and UI in a selected external Unity project. Supports scene repair, undo/redo, clearing logs, project-local captures and batches of 20. Returns selected project numbers, IDs and flags. Blocks documents, Blender, host network and application queries, external services and arbitrary code. See the operation list for individual actions.
 
-[Full list of allowed operations](view/index.html). The configured MCP address is the sole upstream. Project editing can invoke callbacks already installed in Unity. Enforce process isolation or an outbound firewall for machine-wide restrictions.
+[Complete operation table](view/index.html). The controller projects upstream results onto a fixed set of numeric project fields and flags. It does not relay raw text, screenshots, registry URLs, application inventories or upstream errors. Screenshot files are saved in the project. Calls into installed Unity editor callbacks still run with Unity’s OS permissions. Other host tools have their own access controls.

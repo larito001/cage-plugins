@@ -1,6 +1,6 @@
 # Historical read-only review for 0.3.0 (2026-11-25)
 
-For the current 0.4.0 project-edit policy, see [Allowed operations](view/index.html).
+For the current 0.5.0 project-edit policy, see [Allowed operations](view/index.html).
 
 Reviewed installed MCP for Unity 10.3.0, not tool readOnlyHint labels alone.
 

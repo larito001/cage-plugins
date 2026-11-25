@@ -1,5 +1,7 @@
 """Small stdio MCP controller for a separately running Unity MCP HTTP server."""
 import json
+import math
+from pathlib import Path
 import os
 import re
 import sys
@@ -8,12 +10,9 @@ from urllib.parse import urlsplit
 
 LIMIT = 8 * 1024 * 1024
 READ = {
-    "find_gameobjects": None, "find_in_file": None, "get_sha": None,
-    "manage_script_capabilities": None, "get_test_job": None, "validate_script": None,
-    "read_console": {"get"},
+    "find_gameobjects": None,
     "manage_scene": {"get_active", "get_hierarchy", "get_build_settings", "get_loaded_scenes", "validate"},
-    "manage_asset": {"search", "get_info", "get_components"},
-    "manage_script": {"read"}, "manage_shader": {"read"},
+    "manage_asset": {"search", "get_info"},
     "manage_material": {"ping", "get_material_info"},
     "manage_prefabs": {"get_info", "get_hierarchy"},
     "manage_camera": {"ping", "list_cameras", "get_brain_status"},
@@ -23,14 +22,10 @@ READ = {
                         "stats_get", "stats_list_counters", "stats_get_memory", "pipeline_get_info",
                         "pipeline_get_settings", "feature_list", "skybox_get"},
     "manage_physics": {"ping", "get_settings", "get_collision_matrix", "get_rigidbody", "raycast", "raycast_all", "linecast", "shapecast", "overlap", "validate"},
-    "manage_profiler": {"profiler_status", "get_object_memory", "memory_list_snapshots", "frame_debugger_get_events", "get_frame_timing"},
-    "manage_packages": {"ping", "get_package_info", "list_registries", "status"},
+    "manage_profiler": {"profiler_status", "get_object_memory", "get_frame_timing"},
     "manage_probuilder": {"ping", "get_mesh_info"},
-    "manage_ui": {"ping", "read", "list", "get_visual_tree"},
-    "manage_editor": {"telemetry_status"},
-    "manage_tools": {"list_groups"},
-    "unity_reflect": {"get_type", "get_member", "search"},
-    "manage_build": {"status", "platform", "settings", "profiles", "scenes"},
+    "manage_ui": {"ping", "get_visual_tree"},
+    "manage_build": {"status", "platform", "profiles", "scenes"},
 }
 # Explicit 10.3 operations. Never derive execution permissions from upstream metadata.
 EDIT = {
@@ -42,14 +37,15 @@ EDIT = {
     "manage_prefabs": "create_from_gameobject modify_contents open_prefab_stage save_prefab_stage close_prefab_stage",
     "manage_texture": "create modify delete create_sprite apply_pattern apply_gradient apply_noise set_import_settings",
     "manage_editor": "set_active_tool add_tag remove_tag add_layer remove_layer undo redo",
-    "manage_camera": "screenshot screenshot_multiview ensure_brain create_camera set_target set_priority set_lens set_body set_aim set_noise set_blend force_camera release_override",
+    "manage_camera": "screenshot screenshot_multiview ensure_brain create_camera set_target set_priority set_lens set_body set_aim add_extension remove_extension set_noise set_blend force_camera release_override",
     "manage_probuilder": "create_shape create_poly_shape extrude_faces extrude_edges bevel_edges subdivide delete_faces bridge_edges connect_elements detach_faces flip_normals merge_faces combine_meshes merge_objects duplicate_and_flip create_polygon merge_vertices weld_vertices split_vertices move_vertices insert_vertex append_vertices_to_edge select_faces set_face_material set_face_color set_face_uvs convert_to_probuilder set_smoothing auto_smooth center_pivot freeze_transform set_pivot validate_mesh repair_mesh",
-    "manage_physics": "set_collision_matrix configure_rigidbody add_joint remove_joint configure_joint assign_physics_material apply_force",
-    "manage_graphics": "skybox_set_material skybox_set_properties skybox_set_ambient skybox_set_fog skybox_set_reflection skybox_set_sun feature_toggle feature_reorder",
-    "manage_animation": "animator_set_parameter animator_set_speed animator_set_enabled controller_add_state controller_add_transition controller_add_parameter controller_assign controller_add_layer controller_remove_layer controller_set_layer_weight controller_create_blend_tree_1d controller_create_blend_tree_2d controller_add_blend_tree_child clip_assign clip_remove_event",
-    "manage_ui": "modify_visual_element attach_ui_document detach_ui_document render_ui",
-    "manage_vfx": "particle_create particle_set_main particle_set_emission particle_set_shape particle_set_color_over_lifetime particle_set_size_over_lifetime particle_set_velocity_over_lifetime particle_set_noise particle_set_renderer particle_enable_module line_set_positions line_add_position line_set_position line_set_width line_set_color line_set_material line_set_properties line_clear line_create_line line_create_circle line_create_arc line_create_bezier trail_set_time trail_set_width trail_set_color trail_set_material trail_set_properties trail_clear trail_emit vfx_play vfx_stop vfx_pause vfx_set_playback_speed vfx_set_seed particle_play particle_stop particle_pause particle_restart particle_clear particle_add_burst particle_clear_bursts vfx_set_float vfx_set_int vfx_set_bool vfx_set_vector2 vfx_set_vector3 vfx_set_vector4 vfx_set_color",
+    "manage_physics": "set_collision_matrix configure_rigidbody add_joint remove_joint configure_joint assign_physics_material apply_force set_settings create_physics_material configure_physics_material",
+    "manage_graphics": "skybox_set_material skybox_set_properties skybox_set_ambient skybox_set_fog skybox_set_reflection skybox_set_sun feature_toggle feature_reorder pipeline_set_quality stats_set_scene_debug bake_set_settings bake_create_light_probe_group bake_create_reflection_probe bake_set_probe_positions volume_set_properties volume_create_profile",
+    "manage_animation": "animator_set_parameter animator_set_speed animator_set_enabled controller_add_state controller_add_transition controller_add_parameter controller_assign controller_add_layer controller_remove_layer controller_set_layer_weight controller_create_blend_tree_1d controller_create_blend_tree_2d controller_add_blend_tree_child clip_assign clip_remove_event clip_create clip_create_preset controller_create clip_add_curve clip_set_curve clip_set_vector_curve",
+    "manage_ui": "modify_visual_element attach_ui_document detach_ui_document render_ui create_panel_settings update_panel_settings",
+    "manage_vfx": "particle_create particle_set_main particle_set_emission particle_set_shape particle_set_color_over_lifetime particle_set_size_over_lifetime particle_set_velocity_over_lifetime particle_set_noise particle_set_renderer particle_enable_module line_set_positions line_add_position line_set_position line_set_width line_set_color line_set_material line_set_properties line_clear line_create_line line_create_circle line_create_arc line_create_bezier trail_set_time trail_set_width trail_set_color trail_set_material trail_set_properties trail_clear trail_emit vfx_play vfx_stop vfx_pause vfx_set_playback_speed vfx_set_seed particle_play particle_stop particle_pause particle_restart particle_clear particle_add_burst particle_clear_bursts vfx_set_float vfx_set_int vfx_set_bool vfx_set_vector2 vfx_set_vector3 vfx_set_vector4 vfx_set_color vfx_set_gradient vfx_set_curve",
     "read_console": "clear",
+    "manage_profiler": "frame_debugger_enable frame_debugger_disable",
 }
 ALLOWED = READ.copy()
 for family, names in EDIT.items():
@@ -94,9 +90,51 @@ def check_values(value):
 
 def check_edit(tool, a):
     action = a["action"]
-    for k,v in a.items():
-        if k != "action":
-            check_values(v)
+    props = a.get("properties", {})
+    if tool in {"manage_animation", "manage_camera", "manage_vfx"} and not isinstance(props, dict):
+        raise ValueError("Use structured properties")
+    if tool == "manage_animation":
+        for key in props:
+            if key.replace("_", "").lower() in {"clippath", "controllerpath"}:
+                raise ValueError("Supply the typed top-level animation asset path")
+        if action.startswith("clip_") and action in {"clip_create", "clip_create_preset", "clip_add_curve", "clip_set_curve", "clip_set_vector_curve"}:
+            asset_path(a.get("clip_path"), {".anim"})
+        if action == "controller_create":
+            asset_path(a.get("controller_path"), {".controller"})
+        if action in {"clip_add_curve", "clip_set_curve", "clip_set_vector_curve"}:
+            if set(props) - {"type","property","propertyPath","relativePath","keys"} or props.get("type","Transform") != "Transform":
+                raise ValueError("Curves may target only a Transform")
+            fields = [props[k] for k in ("property","propertyPath") if k in props]
+            if not fields or not all(isinstance(f, str) and re.fullmatch(
+                    r"(?:m_LocalPosition|localPosition|m_LocalRotation|localRotation|localEulerAngles|m_LocalScale|localScale)(?:\.[xyzw])?", f) for f in fields):
+                raise ValueError("Use a position, rotation or scale curve")
+    if tool == "manage_camera" and action in {"set_body", "set_aim", "add_extension", "remove_extension"}:
+        camera_types = {
+            "set_body": ("bodyType", {"CinemachineFollow", "CinemachineThirdPersonFollow", "CinemachinePositionComposer"}),
+            "set_aim": ("aimType", {"CinemachineRotationComposer", "CinemachineHardLookAt"}),
+            "add_extension": ("extensionType", {"CinemachineConfiner2D", "CinemachineConfiner3D", "CinemachineDeoccluder"}),
+            "remove_extension": ("extensionType", {"CinemachineConfiner2D", "CinemachineConfiner3D", "CinemachineDeoccluder"}),
+        }
+        field, types = camera_types[action]
+        snake = re.sub(r"([A-Z])", r"_\1", field).lower()
+        value = props.get(field, props.get(snake))
+        if len(props) != 1 or value not in types:
+            raise ValueError("Choose a supported built-in Cinemachine type")
+        a["properties"] = {field: "Unity.Cinemachine." + value}
+    if tool == "manage_physics" and action == "create_physics_material":
+        asset_path(a.get("path", "Assets/Physics Materials") + "/folder")
+        if not re.fullmatch(r"[\w -]+", a.get("name") or ""):
+            raise ValueError("Use a simple physics material name")
+    if tool == "manage_physics" and action == "configure_physics_material":
+        asset_path(a.get("path"), {".physicmaterial", ".physicsmaterial", ".physicsmaterial2d"})
+    if tool == "manage_graphics" and action == "volume_create_profile":
+        asset_path(a.get("path"), {".asset"})
+    if tool == "manage_ui" and action in {"create_panel_settings", "update_panel_settings"}:
+        asset_path(a.get("path"), {".asset"})
+        if set(a.get("settings", {})) - {"scaleMode","referenceDpi","fallbackDpi","sortingOrder","targetDisplay","referenceResolution","scale"}:
+            raise ValueError("Only panel layout and display settings are supported")
+    if tool == "manage_ui" and "path" in a and action == "render_ui":
+        asset_path(a["path"], {".uxml"})
     if tool == "manage_asset":
         asset_path(a.get("path"), None if action=="create_folder" else DATA_EXT)
         if action in {"duplicate","move","rename"}:
@@ -131,17 +169,13 @@ def check_edit(tool, a):
         if "screenshot_file_name" in a and not re.fullmatch(r"[A-Za-z0-9_-]{1,80}(?:\.png)?", a["screenshot_file_name"]):
             raise ValueError("Use a simple PNG filename")
         a["output_folder"] = "Assets/Screenshots"
+        a["include_image"] = False
 
 RESOURCES = {
-    "mcpforunity://editor/state", "mcpforunity://project/info", "mcpforunity://project/tags",
-    "mcpforunity://project/layers", "mcpforunity://editor/active-tool", "mcpforunity://editor/selection",
-    "mcpforunity://editor/windows", "mcpforunity://editor/prefab-stage", "mcpforunity://scene/cameras",
-    "mcpforunity://rendering/stats", "mcpforunity://pipeline/renderer-features",
-    "mcpforunity://scene/volumes", "mcpforunity://tool-groups", "mcpforunity://custom-tools",
-    "mcpforunity://menu-items", "mcpforunity://scene/gameobject-api", "mcpforunity://prefab-api",
+    "mcpforunity://scene/cameras", "mcpforunity://editor/selection",
+    "mcpforunity://rendering/stats", "mcpforunity://scene/volumes",
 }
-RESOURCE_PATTERN = r"mcpforunity://scene/gameobject/-?\d+(?:/components|/component/[A-Za-z_][A-Za-z0-9_.]*)?"
-
+RESOURCE_PATTERN = r"mcpforunity://scene/gameobject/-?\d+"
 
 def allowed_resource(uri):
     return isinstance(uri, str) and (uri in RESOURCES or re.fullmatch(RESOURCE_PATTERN, uri) is not None)
@@ -174,7 +208,7 @@ class Unity:
         if p.scheme != "https" and not (p.scheme == "http" and p.hostname in ("127.0.0.1", "localhost", "::1")):
             raise ValueError("Use HTTPS for remote endpoints or a local tunnel")
         self.instance = os.environ.get("UNITY_CONTROLLER_INSTANCE", "")
-        if not discovery and not re.fullmatch(r"[^@\r\n]+@[0-9a-fA-F]+", self.instance):
+        if not discovery and not re.fullmatch(r"(?:[^@\r\n]+@)?[0-9a-fA-F]+", self.instance):
             raise ValueError("Configure the exact Unity instance Name@hash")
         self.mode = "project-edit"
         self.token = os.environ.get("UNITY_CONTROLLER_TOKEN", "")
@@ -235,7 +269,7 @@ class Unity:
 
     def connect(self, discovery=False):
         self.info = self.rpc("initialize", {"protocolVersion": "2025-03-26", "capabilities": {},
-                            "clientInfo": {"name": "unity-controller", "version": "0.4.0"}})
+                            "clientInfo": {"name": "unity-controller", "version": "0.5.0"}})
         self.rpc("notifications/initialized", notification=True)
         raw = self.rpc("resources/read", {"uri": "mcpforunity://instances"})
         instances = []
@@ -243,10 +277,14 @@ class Unity:
             if "text" in content:
                 instances.extend(json.loads(content["text"]).get("instances", []))
         if discovery:
-            return [{k: i.get(k) for k in ("id", "name", "unity_version")} for i in instances]
-        if not any(i.get("id") == self.instance for i in instances):
-            raise ValueError("Configured Unity instance is not connected; no fallback is allowed")
-        selected = self.rpc("tools/call", {"name": "set_active_instance", "arguments": {"instance": self.instance}})
+            return [{"id": i["id"].rsplit("@", 1)[1]} for i in instances
+                    if re.fullmatch(r"[^@\r\n]+@[a-fA-F0-9]+", i.get("id") or "")]
+        matches = [i.get("id") for i in instances
+                   if i.get("id") == self.instance or
+                   ("@" not in self.instance and (i.get("id") or "").endswith("@" + self.instance))]
+        if len(matches) != 1:
+            raise ValueError("Configured Unity instance is missing or ambiguous")
+        selected = self.rpc("tools/call", {"name": "set_active_instance", "arguments": {"instance": matches[0]}})
         if selected.get("isError"):
             raise ValueError("Could not select the configured Unity instance")
         # Some releases report domain errors inside successful MCP content.
@@ -282,30 +320,46 @@ class Unity:
             raise ValueError("Preview generation is disabled")
         if tool == "manage_asset":
             arguments["generate_preview"] = False
-        if tool == "manage_profiler" and "search_path" in arguments:
-            raise ValueError("Use the default project snapshot folder")
-        if tool == "manage_build" and set(arguments) - {"action", "job_id", "property"}:
+        if set(arguments) - SCHEMAS[tool]["properties"].keys():
+            raise ValueError("Unknown argument for this tool")
+        if tool == "manage_build" and set(arguments) - {"action", "job_id"}:
             raise ValueError("Only build information queries are permitted")
         if tool == "manage_scene" and arguments.get("action") == "validate":
-            if "autoRepair" in arguments or type(arguments.get("auto_repair", False)) is not bool:
+            if type(arguments.get("auto_repair", False)) is not bool:
                 raise ValueError("Use the boolean auto_repair field")
-        if tool == "validate_script" and arguments.get("level", "basic") not in ("basic", "standard"):
-            raise ValueError("Only basic or standard syntax checks are permitted")
-        if tool in {"find_in_file", "get_sha", "validate_script"} and "uri" in arguments:
-            uri = arguments["uri"]
-            if not isinstance(uri, str):
-                raise ValueError("Use a script path under Assets/")
-            asset_path(uri.removeprefix("mcpforunity://path/"), {".cs"})
-        if tool in {"manage_script", "manage_shader"}:
-            directory = arguments.get("path", "Assets/")
-            if not isinstance(directory, str):
-                raise ValueError("Use a directory under Assets/")
-            asset_path(directory.rstrip("/") + "/placeholder")
-            if "name" in arguments:
-                name = arguments["name"]
-                if not isinstance(name, str) or "/" in name:
-                    raise ValueError("Use a filename and a separate project path")
-                asset_path("Assets/" + name)
+        for key, value in arguments.items():
+            if key != "action":
+                check_values(value)
+        if tool == "manage_prefabs" and "prefab_path" in arguments:
+            asset_path(arguments["prefab_path"], {".prefab"})
+        if tool == "manage_material" and "material_path" in arguments:
+            asset_path(arguments["material_path"], {".mat"})
+        if tool == "manage_animation":
+            for key, ext in (("clip_path", ".anim"), ("controller_path", ".controller")):
+                if key in arguments:
+                    asset_path(arguments[key], {ext})
+        if tool == "manage_profiler" and "object_path" in arguments:
+            obj = arguments["object_path"]
+            if arguments.get("action") != "get_object_memory" or not isinstance(obj, str):
+                raise ValueError("Use a project object for memory queries")
+            if obj.startswith("Assets/"):
+                asset_path(obj, DATA_EXT)
+            elif not re.fullmatch(r"[\w -]+(?:/[\w -]+)*", obj):
+                raise ValueError("Use a scene hierarchy path or supported project asset")
+        if tool == "manage_graphics" and "profile_path" in arguments:
+            asset_path(arguments["profile_path"], {".asset"})
+        if tool == "manage_asset" and arguments.get("action") == "get_info":
+            asset_path(arguments.get("path"), DATA_EXT)
+        if tool == "manage_asset" and arguments.get("action") == "search":
+            folder = arguments.get("path", "Assets")
+            if folder != "Assets":
+                raise ValueError("Asset search is scoped to Assets")
+            kind = arguments.setdefault("filter_type", "Prefab")
+            if kind not in {"Prefab", "SceneAsset", "Material", "Texture2D", "Mesh", "AnimationClip",
+                            "AnimatorController", "AudioClip", "Sprite"} or not re.fullmatch(
+                                r"[\w -]*", arguments.get("search_pattern") or ""):
+                raise ValueError("Search by a plain name and a supported project asset type")
+            arguments["path"] = folder
         actions = ALLOWED[tool]
         if actions is not None and arguments.get("action") not in actions:
             raise ValueError("An explicitly permitted action is required")
@@ -313,8 +367,76 @@ class Unity:
             check_edit(tool, arguments)
 
 
+SCHEMAS = json.loads(Path(__file__).with_name("schemas.json").read_text(encoding="utf-8"))
+
+
 def text_result(value):
     return {"content": [{"type": "text", "text": json.dumps(value, ensure_ascii=False)}]}
+
+
+# Copy only the project fields that the controller presents to its client.
+# Free text, blobs, host paths and arbitrary component/property maps stay upstream.
+PROJECT_NUMBERS = frozenset("""
+    activeInstanceID eventCount draw_calls set_pass_calls dynamic_batches static_batches
+    instanced_batches shadow_casters render_textures render_textures_bytes used_textures
+    used_textures_bytes render_target_changes visible_skinned_meshes sizeBytes memoryBytes
+    id instanceID instanceId instance_id parentId parentInstanceID buildIndex rootCount
+    childCount depth count total totalCount pageSize pageNumber nextCursor next_cursor
+    layer priority fieldOfView orthographicSize mass intensity range frameRate duration
+    width height vertexCount triangleCount subMeshCount particleCount stateCount layerCount
+    drawCalls batches triangles vertices cameraCount index order weight
+""".split())
+PROJECT_FLAGS = frozenset("""
+    hasBrain cinemachineInstalled isDirty isLoaded isActive activeSelf activeInHierarchy enabled isTrigger
+    isKinematic useGravity orthographic hasMore has_more visible
+""".split())
+PROJECT_GROUPS = frozenset("""
+    activeGameObject activeTransform brain unityCameras cinemachineCameras
+    items children hierarchy roots objects gameObjects cameras scenes volumes
+    results instances instanceIDs instance_ids gameobjects transform stats
+""".split())
+PROJECT_VECTORS = {"position", "rotation", "localPosition", "localRotation", "scale",
+                   "localScale", "eulerAngles", "bounds", "center", "size", "color"}
+
+def number(value):
+    return type(value) is int or (type(value) is float and math.isfinite(value))
+
+def project_fields(value):
+    if isinstance(value, list):
+        return [project_fields(item) if isinstance(item, dict) else item
+                for item in value if isinstance(item, dict) or number(item)]
+    if not isinstance(value, dict):
+        return {}
+    result = {}
+    for key, item in value.items():
+        if key in PROJECT_NUMBERS and number(item):
+            result[key] = item
+        elif key in PROJECT_FLAGS and type(item) is bool:
+            result[key] = item
+        elif key in PROJECT_GROUPS and isinstance(item, (dict, list)):
+            result[key] = project_fields(item)
+        elif key in PROJECT_VECTORS:
+            if isinstance(item, dict):
+                result[key] = {axis: item[axis] for axis in "xyzwrgba" if number(item.get(axis))}
+            elif isinstance(item, list) and len(item) <= 4 and all(number(v) for v in item):
+                result[key] = item
+    return result
+
+
+def project_reply(raw, resource=False):
+    if raw.get("isError"):
+        return {"isError": True, **text_result({"success": False})}
+    value = raw.get("structuredContent")
+    if not isinstance(value, dict):
+        blocks = raw.get("contents" if resource else "content", [])
+        try:
+            value = json.loads(next(b["text"] for b in blocks if isinstance(b.get("text"), str)))
+        except (StopIteration, ValueError):
+            value = None
+    if not isinstance(value, dict) or value.get("success") is False or value.get("error"):
+        return {"isError": True, **text_result({"success": False})}
+    data = project_fields(value.get("data", value))
+    return text_result({"success": True, "data": data})
 
 
 def tool(name, description, properties=None, required=None):
@@ -327,11 +449,11 @@ TOOLS = [
          {"calls": {"type": "array", "minItems": 1, "maxItems": 20, "items": {
              "type": "object", "properties": {"tool": {"type": "string"}, "arguments": {"type": "object"}},
              "required": ["tool", "arguments"], "additionalProperties": False}}}, ["calls"]),
-    tool("unity_controller_instances", "List connected Unity project names and exact Name@hash identifiers without selecting a project."),
+    tool("unity_controller_instances", "List the hashes of connected Unity projects without selecting a project."),
     tool("unity_controller_status", "Read the connection status and the configured Unity Editor instance."),
     tool("unity_controller_catalog", "List permitted Unity operations and their argument schemas. Only explicitly permitted project actions are available."),
     tool("unity_controller_read", "Read editor, project, camera or object/component information from the configured Unity instance.",
-         {"uri": {"type": "string", "description": "Use a URI from the catalog, including scene/gameobject/{id} and its components."}}, ["uri"]),
+         {"uri": {"type": "string", "description": "Use a URI from the catalog, including scene/gameobject/{id}."}}, ["uri"]),
     tool("unity_controller_call", "Invoke a permitted Unity operation on the configured instance. May change or delete project data.",
          {"tool": {"type": "string"}, "arguments": {"type": "object"}}, ["tool", "arguments"]),
 ]
@@ -364,7 +486,7 @@ def call(name, args):
         if name == "unity_controller_batch":
             results, size = [], 0
             for item in calls:
-                result = client.rpc("tools/call", {"name": item["tool"], "arguments": item["arguments"]})
+                result = project_reply(client.rpc("tools/call", {"name": item["tool"], "arguments": item["arguments"]}))
                 size += len(json.dumps(result).encode("utf-8"))
                 if size > LIMIT:
                     raise ValueError("Batch response too large; use smaller batches")
@@ -373,8 +495,7 @@ def call(name, args):
                     break
             return text_result({"results": results, "completed": len(results), "requested": len(calls)})
         if name == "unity_controller_status":
-            return text_result({"connected": True, "instance": client.instance, "mode": client.mode,
-                                "server": client.info.get("serverInfo")})
+            return text_result({"connected": True, "instance": client.instance.rsplit("@", 1)[-1], "mode": client.mode})
         if name == "unity_controller_catalog":
             result, permitted, cursor = {}, [], None
             for _ in range(16):
@@ -383,7 +504,7 @@ def call(name, args):
                     n = t.get("name")
                     if n in ALLOWED:
                         # Return schemas as data, never register unreviewed upstream tools.
-                        schema = t.get("inputSchema", {})
+                        schema = dict(SCHEMAS[n], properties=SCHEMAS[n]["properties"].copy())
                         if ALLOWED[n]:
                             schema.setdefault("properties", {})["action"] = {"type": "string", "enum": sorted(ALLOWED[n])}
                             schema["required"] = sorted(set(schema.get("required", [])) | {"action"})
@@ -393,10 +514,10 @@ def call(name, args):
                 if not cursor:
                     break
             return text_result({"mode": client.mode, "tools": permitted, "resources": sorted(RESOURCES),
-                                "resource_templates": ["mcpforunity://scene/gameobject/{id}", "mcpforunity://scene/gameobject/{id}/components", "mcpforunity://scene/gameobject/{id}/component/{type}" ]})
+                                "resource_templates": ["mcpforunity://scene/gameobject/{id}" ]})
         if name == "unity_controller_read":
-            return text_result(client.rpc("resources/read", {"uri": args["uri"]}))
-        return client.rpc("tools/call", {"name": args["tool"], "arguments": args["arguments"]})
+            return project_reply(client.rpc("resources/read", {"uri": args["uri"]}), resource=True)
+        return project_reply(client.rpc("tools/call", {"name": args["tool"], "arguments": args["arguments"]}))
     finally:
         client.close()
 
@@ -413,7 +534,7 @@ def main():
             method = msg.get("method")
             if method == "initialize":
                 result = {"protocolVersion": "2025-03-26", "capabilities": {"tools": {}},
-                          "serverInfo": {"name": "unity-controller", "version": "0.4.0"}}
+                          "serverInfo": {"name": "unity-controller", "version": "0.5.0"}}
             elif method == "ping":
                 result = {}
             elif method == "tools/list":
@@ -424,7 +545,7 @@ def main():
                     result = call(p.get("name"), p.get("arguments", {}))
                 except Exception as exc:
                     # Network exceptions may contain secret endpoints; never echo them.
-                    message = str(exc) if isinstance(exc, ValueError) else "Unity connection failed; check endpoint, credentials and server state"
+                    message = "Request rejected or Unity unavailable; check the permitted operations and project settings"
                     result = {"isError": True, "content": [{"type": "text", "text": message}]}
             else:
                 print(json.dumps({"jsonrpc": "2.0", "id": msg["id"], "error": {"code": -32601, "message": "Method not supported"}}), flush=True)

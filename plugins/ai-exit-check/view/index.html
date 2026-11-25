@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 出口与地区检测</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="title-group">
+        <h1 class="page-title">AI 出口与地区检测</h1>
+        <p class="page-subtitle">并发探测 Google (Antigravity / Gemini)、Anthropic (Claude)、OpenAI (Codex / ChatGPT) 实际看到的出口 IP 与识别地区是否一致。</p>
+      </div>
+      <div class="toolbar">
+        <label class="field">
+          <span class="field-label">检测出口</span>
+          <select id="routeSelect" class="select-control">
+            <option value="default">默认网络出口</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="field-label">期望地区</span>
+          <select id="expectedSelect" class="select-control">
+            <option value="">自动（以出口为准）</option>
+            <option value="US">美国 (US)</option>
+            <option value="JP">日本 (JP)</option>
+            <option value="SG">新加坡 (SG)</option>
+            <option value="TW">中国台湾 (TW)</option>
+            <option value="KR">韩国 (KR)</option>
+            <option value="GB">英国 (GB)</option>
+            <option value="DE">德国 (DE)</option>
+            <option value="NL">荷兰 (NL)</option>
+            <option value="FR">法国 (FR)</option>
+            <option value="CA">加拿大 (CA)</option>
+            <option value="AU">澳大利亚 (AU)</option>
+          </select>
+        </label>
+        <label class="toggle-chip" title="打码展示并复制部分 IP 段，便于截图分享">
+          <input id="maskIpToggle" type="checkbox">
+          <span>隐藏部分 IP</span>
+        </label>
+        <button id="copyBtn" type="button" class="btn btn-secondary" disabled>复制报告</button>
+        <button id="refreshBtn" type="button" class="btn btn-primary">
+          <span id="refreshSpinner" class="spinner" hidden></span>
+          <span id="refreshLabel">重新检测</span>
+        </button>
+      </div>
+    </header>
+
+    <section id="summaryBanner" class="summary-banner" data-tone="neutral">
+      <div class="summary-main">
+        <span id="summaryPill" class="status-pill" data-tone="neutral">准备检测</span>
+        <div class="summary-text-wrap">
+          <div id="summaryTitle" class="summary-title">正在准备探测各平台边缘节点…</div>
+          <div id="summaryMeta" class="summary-meta">将对比基准 GeoIP 库与三家 AI 官方边缘实际识别的国家/地区</div>
+        </div>
+      </div>
+      <div id="summaryBadges" class="summary-badges"></div>
+    </section>
+
+    <section id="baselineSection" class="baseline-card" aria-label="基准出口信息">
+      <div class="baseline-head">
+        <span class="section-kicker">基准出口 (GeoIP 标称)</span>
+        <span id="baselineSource" class="muted-meta">—</span>
+      </div>
+      <div id="baselineGrid" class="baseline-grid">
+        <div class="metric-item">
+          <span class="metric-label">出口 IP</span>
+          <span class="metric-value mono">—</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">GeoIP 标称地区</span>
+          <span class="metric-value">—</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">城市 / 区域</span>
+          <span class="metric-value">—</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">运营商 / ASN</span>
+          <span class="metric-value">—</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="providersGrid" class="providers-grid" aria-label="各 AI 平台识别详情"></section>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

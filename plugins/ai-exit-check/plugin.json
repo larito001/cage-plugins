@@ -1,0 +1,36 @@
+{
+  "name": "ai-exit-check",
+  "displayName": "AI Exit IP & Region Check",
+  "version": "0.1.0",
+  "description": "Checks exit IPs, vendor-detected regions, service availability, and region consistency across Google, Anthropic, and OpenAI.",
+  "icon": "icon.svg",
+  "engines": {
+    "cage": ">=0.2.0"
+  },
+  "kind": "guest",
+  "permissions": [],
+  "categories": [
+    "network",
+    "system"
+  ],
+  "contributes": {
+    "mcpServers": [
+      {
+        "id": "checker",
+        "command": [
+          "python3",
+          "server.py"
+        ]
+      }
+    ],
+    "views": [
+      {
+        "id": "dashboard",
+        "title": "AI 出口与地区检测",
+        "icon": "icon.svg",
+        "entry": "view/index.html",
+        "server": "checker"
+      }
+    ]
+  }
+}

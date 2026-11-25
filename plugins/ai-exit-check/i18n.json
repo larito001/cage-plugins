@@ -1,0 +1,62 @@
+{
+  "zh-CN": {
+    "displayName": "AI 出口与地区检测",
+    "description": "检测 Google（Antigravity/Gemini）、Anthropic（Claude）与 OpenAI（Codex）各自识别到的真实出口 IP、所属国家/地区、边缘节点及地区一致性。"
+  },
+  "zh-TW": {
+    "displayName": "AI 出口與地區檢測",
+    "description": "檢測 Google（Antigravity/Gemini）、Anthropic（Claude）與 OpenAI（Codex）各自識別到的真實出口 IP、所屬國家/地區、邊緣節點與地區一致性。"
+  },
+  "ru": {
+    "displayName": "Проверка IP и региона для ИИ",
+    "description": "Проверяет внешний IP-адрес, определяемую страну, доступность сервисов и совпадение регионов для Google, Anthropic и OpenAI."
+  },
+  "ar": {
+    "displayName": "فحص عنوان الخروج والمنطقة للذكاء الاصطناعي",
+    "description": "يفحص عنوان IP الخارجي والمنطقة المكتشفة وتوفر الخدمة وتطابق المناطق لدى Google وAnthropic وOpenAI."
+  },
+  "fa": {
+    "displayName": "بررسی IP خروجی و منطقه هوش مصنوعی",
+    "description": "آدرس IP خروجی، کشور شناسایی‌شده، دسترسی به سرویس و تطابق منطقه را در Google، Anthropic و OpenAI بررسی می‌کند."
+  },
+  "ko": {
+    "displayName": "AI 출구 IP 및 지역 감지",
+    "description": "Google(Antigravity/Gemini), Anthropic(Claude), OpenAI(Codex)에서 인식하는 출구 IP, 감지된 국가/지역 및 일치 여부를 확인합니다."
+  },
+  "es": {
+    "displayName": "Comprobación de IP y región de IA",
+    "description": "Comprueba la IP de salida, la región detectada, la disponibilidad del servicio y la coherencia regional en Google, Anthropic y OpenAI."
+  },
+  "my": {
+    "displayName": "AI ထွက်ပေါက် IP နှင့် ဒေသစစ်ဆေးမှု",
+    "description": "Google၊ Anthropic နှင့် OpenAI တို့မှ သိရှိသော ထွက်ပေါက် IP၊ နိုင်ငံ/ဒေသ နှင့် ဒေသကိုက်ညီမှုတို့ကို စစ်ဆေးပေးသည်။"
+  },
+  "be": {
+    "displayName": "Праверка IP і рэгіёна для ШІ",
+    "description": "Правярае знешні IP-адрас, вызначаную краіну, даступнасць сэрвісаў і адпаведнасць рэгіёнаў для Google, Anthropic і OpenAI."
+  },
+  "ps": {
+    "displayName": "د AI وتلو IP او سیمې ازموینه",
+    "description": "په Google، Anthropic او OpenAI کې د وتلو IP پته، پېژندل شوې سیمه، د خدمت شتون او د سیمې مطابقت ګوري."
+  },
+  "prs": {
+    "displayName": "بررسی IP خروجی و منطقه هوش مصنوعی",
+    "description": "آدرس IP خروجی، کشور شناسایی‌شده، دسترسی خدمات و سازگاری منطقه را در Google، Anthropic و OpenAI بررسی می‌کند."
+  },
+  "am": {
+    "displayName": "የAI መውጫ IP እና ክልል ምርመራ",
+    "description": "በGoogle፣ Anthropic እና OpenAI የሚታወቀውን የመውጫ IP፣ የተለየውን አገር/ክልል እና የክልል ተመሳሳይነት ይፈትሻል።"
+  },
+  "so": {
+    "displayName": "Hubinta IP-ga Bixitaanka iyo Gobolka AI",
+    "description": "Wuxuu hubiyaa IP-ga bixitaanka, gobolka la aqoonsaday, helitaanka adeegga, iyo iswaafaqsanaanta gobolka ee Google, Anthropic, iyo OpenAI."
+  },
+  "ti": {
+    "displayName": "ምርመራ መውጽኢ IPን ዞባን AI",
+    "description": "ብGoogle፣ Anthropic ከምኡውን OpenAI ዝልለ መውጽኢ IP፣ ሃገር/ዞባን ምጥዕዓም ዞባን ይምርምር።"
+  },
+  "fr": {
+    "displayName": "Vérification IP et région IA",
+    "description": "Vérifie l’IP de sortie, la région détectée, la disponibilité du service et la cohérence régionale auprès de Google, Anthropic et OpenAI."
+  }
+}

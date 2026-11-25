@@ -2,6 +2,8 @@
 
 这里收录 [Cage](https://github.com/Lee-xeo/Claude-Cage) 的插件。插件让环境里的 Claude 在你的电脑上多一项能力，例如运行命令、读取屏幕或操作某个应用。每个插件是一个标准的 MCP 服务，通过标准输入输出通信。
 
+本 fork 保留主机控制、浏览器与应用连接等插件，移除了文件处理、Git、SQLite、网页抓取、时钟和系统状态的重复封装。下方清单与索引格式中的示例仅用于说明格式。
+
 ## 安装插件
 
 在 Cage 侧栏打开「插件」→「插件市场」，按分类浏览并安装。Cage 从本仓库读取 `index.json`，下载对应的压缩包，核对 SHA-256 后放进插件目录。
@@ -52,7 +54,7 @@
 }
 ```
 
-清单各字段、页面的限制和页面与 Cage 之间的消息协议，见 Cage 仓库的[插件文档](https://github.com/Lee-xeo/Claude-Cage/blob/main/docs/plugins.md)。只有一个 MCP 服务的主机插件也可以用旧格式，像 [`plugins/clock`](plugins/clock) 那样只写 `command`。
+清单各字段、页面的限制和页面与 Cage 之间的消息协议，见 Cage 仓库的[插件文档](https://github.com/Lee-xeo/Claude-Cage/blob/main/docs/plugins.md)。只有一个 MCP 服务的主机插件也可以用旧格式，只写 `command` 即可。
 
 `permissions` 必须如实写明，没有就写空列表。可选值：`files`（读写文件）、`commands`（运行命令）、`screen`（查看屏幕）、`input`（控制键盘和鼠标）、`network`（访问网络）。
 
@@ -123,11 +125,9 @@ Cage 客户端会根据当前界面语言自动显示插件名称与说明（若
 
 示例都不需要安装依赖，只用到 Python 标准库、Windows 自带的 PowerShell 或 Linux 桌面自带的 X11 库：
 
-- [`plugins/clock`](plugins/clock)：最小的主机插件，一个工具。macOS 和 Linux 用 Python 版，Windows 版（PowerShell）放在 `targets/win32-x64/clock` 和 `targets/win32-arm64/clock` 下。
 - [`plugins/desktop-control`](plugins/desktop-control)：主机插件，查看屏幕并使用键鼠。macOS 版在 `plugins/` 下，Windows 版按目标放在 `targets/win32-x64/` 和 `targets/win32-arm64/` 下，Linux 版（X11）放在 `targets/linux-x64/` 和 `targets/linux-arm64/` 下。三个版本读取同一份工具表 `tools.json`，工具名称和参数完全相同。
 - [`plugins/linux-desktop`](plugins/linux-desktop)：环境内插件，用 `desktop-control` 的 Linux 版操作环境自己的桌面，工具名称前加 `desktop_`。
 - [`plugins/local-preview`](plugins/local-preview)：主机插件，在本机浏览器打开回环地址页面并读回标签页。
-- [`plugins/system-status`](plugins/system-status)：环境内插件，一个页面加一个工具。
 
 基于开源 MCP 服务的插件：
 
@@ -136,13 +136,6 @@ Cage 客户端会根据当前界面语言自动显示插件名称与说明（若
 | [`browser`](plugins/browser) | [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) 0.0.86 | Apache-2.0 | 环境内 | 环境自带 Node.js 与 Chromium（`npx` 固定版本） |
 | [`chrome-devtools`](plugins/chrome-devtools) | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) 1.13.0 | Apache-2.0 | 环境内 | 环境自带 Node.js 与 Chromium（`launcher.py` + `npx` 固定版本） |
 | [`codex-dispatch`](plugins/codex-dispatch) | 社区自研（[@SLEEPYBQ](https://github.com/SLEEPYBQ)） | MIT | 这台电脑 | 本机 Node.js 22 与 Codex CLI |
-| [`excel-workbooks`](plugins/excel-workbooks) | [haris-musa/excel-mcp-server](https://github.com/haris-musa/excel-mcp-server) 2.3.2 | MIT | 环境内 | 环境自带 Python 3（`pylock.json` SHA-256 锁定，默认限定 `${PROJECT_DIR}`） |
-| [`word-documents`](plugins/word-documents) | [GongRzhe/Office-Word-MCP-Server](https://github.com/GongRzhe/Office-Word-MCP-Server) 1.1.11 | MIT | 环境内 | 环境自带 Python 3（`pylock.json` SHA-256 锁定；转 PDF 另需 LibreOffice） |
-| [`powerpoint-slides`](plugins/powerpoint-slides) | [GongRzhe/Office-PowerPoint-MCP-Server](https://github.com/GongRzhe/Office-PowerPoint-MCP-Server) 2.0.7 | MIT | 环境内 | 环境自带 Python 3（`pylock.json` SHA-256 锁定） |
-| [`documents-to-markdown`](plugins/documents-to-markdown) | [SylphxAI/anymd](https://github.com/SylphxAI/anymd) 8.5.13 | MIT | 环境内 | 环境自带 Node.js 与 Python 3（`launcher.py` + `npx` 固定版本） |
-| [`git-repository`](plugins/git-repository) | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers/tree/v2.5.0/src/git) v2.5.0（`mcp-server-git` 2026.11.18） | MIT | 环境内 | 环境自带 Python 3 与 Git（`pylock.json` SHA-256 锁定） |
-| [`web-fetch`](plugins/web-fetch) | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers/tree/v2.5.0/src/fetch) v2.5.0（`mcp-server-fetch` 2026.11.18） | MIT | 环境内 | 环境自带 Python 3（`pylock.json` SHA-256 锁定） |
-| [`sqlite`](plugins/sqlite) | [modelcontextprotocol/servers-archived](https://github.com/modelcontextprotocol/servers-archived) 2025.4.25 | MIT | 环境内 | 环境自带 Python 3（`pylock.json` SHA-256 锁定） |
 | [`knowledge-memory`](plugins/knowledge-memory) | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers/tree/v2.5.0/src/memory) v2.5.0（`@modelcontextprotocol/server-memory` 2.2.1） | Apache-2.0 AND MIT | 环境内 | 环境自带 Node.js 与 Python 3（随包锁定依赖，完全离线） |
 | [`blender`](plugins/blender) | [ahujasid/blender-mcp](https://github.com/ahujasid/blender-mcp) 1.3.1 | MIT | 这台电脑 | 本机 `uv`、Blender 3.0+ 及随附的插件 |
 
@@ -161,8 +154,8 @@ Cage 客户端会根据当前界面语言自动显示插件名称与说明（若
       "author": { "name": "Lee-xeo", "official": true },
       "i18n": { "zh-CN": { "displayName": "时钟", "description": "获取这台电脑上的当前时间。" } },
       "permissions": [],
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/clock/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/clock-0.1.4.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/clock/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/clock-0.1.4.tar.gz",
       "sha256": "…",
       "bytes": 887,
       "source": { "project": "上游项目，可选", "version": "…", "license": "MIT", "url": "https://…" }

@@ -114,8 +114,8 @@
         ]
       },
       "runtime": "python3",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/agent-mesh/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/agent-mesh-1.0.1.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/agent-mesh/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/agent-mesh-1.0.1.tar.gz",
       "sha256": "637dde0fed441b22eeac480b8a7fa91a1dc8040fc7a446f20acebb1ad42b5be8",
       "bytes": 62711
     },
@@ -238,8 +238,8 @@
           }
         ]
       },
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/antigravity-app/icon.png",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/antigravity-app-0.1.1.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/antigravity-app/icon.png",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/antigravity-app-0.1.1.tar.gz",
       "sha256": "ca4841ab4a268b2191b0abca6ede13fad4e191b0bf52505ace5c3c13b9aecb5b",
       "bytes": 23000
     },
@@ -352,8 +352,8 @@
         "license": "MIT",
         "url": "https://github.com/ahujasid/blender-mcp"
       },
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/blender/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/blender-0.1.1.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/blender/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/blender-0.1.1.tar.gz",
       "sha256": "bcc35935154ccdd4451cdfc7af112a3e51dc9b34b11d1fd1aded37e1546e308c",
       "bytes": 20666
     },
@@ -466,8 +466,8 @@
         "license": "Apache-2.0",
         "url": "https://github.com/microsoft/playwright-mcp"
       },
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/browser/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/browser-0.1.1.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/browser/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/browser-0.1.1.tar.gz",
       "sha256": "dc2b4bc121fb6e59b5ab4b6ac5d1a8dbae02f4043fa803cc1dc73afe22666c2d",
       "bytes": 7899
     },
@@ -570,94 +570,10 @@
         "license": "Apache-2.0",
         "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp"
       },
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/chrome-devtools/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/chrome-devtools-0.1.1.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/chrome-devtools/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/chrome-devtools-0.1.1.tar.gz",
       "sha256": "1d2bd3f26ac6417a80014a0ac097a435f8e11488136c574f44ad905ebd48618d",
       "bytes": 21936
-    },
-    {
-      "name": "clock",
-      "version": "0.1.4",
-      "description": "Tells the current time on this computer.",
-      "permissions": [],
-      "author": {
-        "name": "Lee-xeo",
-        "official": true
-      },
-      "i18n": {
-        "zh-CN": {
-          "displayName": "时钟",
-          "description": "获取这台电脑上的当前时间。"
-        },
-        "zh-TW": {
-          "displayName": "時鐘",
-          "description": "取得這台電腦上的目前時間。"
-        },
-        "ru": {
-          "displayName": "Часы",
-          "description": "Сообщает текущее время на этом компьютере."
-        },
-        "ar": {
-          "displayName": "الساعة",
-          "description": "يعرض الوقت الحالي على هذا الكمبيوتر."
-        },
-        "fa": {
-          "displayName": "ساعت",
-          "description": "زمان کنونی این رایانه را گزارش می‌دهد."
-        },
-        "ko": {
-          "displayName": "시계",
-          "description": "이 컴퓨터의 현재 시각을 알려줍니다."
-        },
-        "es": {
-          "displayName": "Reloj",
-          "description": "Informa la hora actual en este equipo."
-        },
-        "my": {
-          "displayName": "နာရီ",
-          "description": "ဤကွန်ပျူတာရှိ လက်ရှိအချိန်ကို ပြောပြသည်။"
-        },
-        "be": {
-          "displayName": "Гадзіннік",
-          "description": "Паведамляе бягучы час на гэтым камп'ютары."
-        },
-        "ps": {
-          "displayName": "ساعت",
-          "description": "په دې کمپیوټر کې اوسنی وخت ښيي."
-        },
-        "prs": {
-          "displayName": "ساعت",
-          "description": "زمان فعلی این کمپیوتر را نشان می‌دهد."
-        },
-        "am": {
-          "displayName": "ሰዓት",
-          "description": "በዚህ ኮምፒውተር ላይ ያለውን የአሁኑን ሰዓት ይነግራል።"
-        },
-        "so": {
-          "displayName": "Saacad",
-          "description": "Waxay sheegtaa waqtiga hadda ka jira kombiyuutarkan."
-        },
-        "ti": {
-          "displayName": "ሰዓት",
-          "description": "ኣብዛ ኮምፒተር ዘሎ ህሉው ሰዓት ይነግር።"
-        },
-        "fr": {
-          "displayName": "Horloge",
-          "description": "Indique l'heure actuelle sur cet ordinateur."
-        }
-      },
-      "platforms": [
-        "darwin",
-        "linux"
-      ],
-      "categories": [
-        "example"
-      ],
-      "runtime": "python3",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/clock/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/clock-0.1.4.tar.gz",
-      "sha256": "263f9ff344ace131a3bcaec45f968e09a7db2bf62562a57f6c4ab4dc3b716ff2",
-      "bytes": 2081
     },
     {
       "name": "codex-app",
@@ -767,8 +683,8 @@
           }
         ]
       },
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/codex-app/icon.png",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/codex-app-0.1.1.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/codex-app/icon.png",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/codex-app-0.1.1.tar.gz",
       "sha256": "142a995059cb9f8ab0589f9c54a22ca881cd9bc7dcc31c8c782208440008a5f2",
       "bytes": 31564
     },
@@ -871,8 +787,8 @@
         ]
       },
       "runtime": "node",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/codex-dispatch/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/codex-dispatch-0.1.2.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/codex-dispatch/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/codex-dispatch-0.1.2.tar.gz",
       "sha256": "912668555d9f701206531f8a9124e4cecb671c49af47b143d66784a5af4bd728",
       "bytes": 14604
     },
@@ -972,8 +888,8 @@
         ]
       },
       "runtime": "python3",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/computer-use/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/computer-use-0.2.7.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/computer-use/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/computer-use-0.2.7.tar.gz",
       "sha256": "b39ed6de967031fa50bd53301ef92b779c6a153cb485bd28ddfcd1d981721387",
       "bytes": 185826
     },
@@ -1058,322 +974,10 @@
         "desktop"
       ],
       "runtime": "python3",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/desktop-control/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/desktop-control-0.3.2.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/desktop-control/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.2.tar.gz",
       "sha256": "92997ce568ccadfa79097edff8e51026fa7ae193d1b3a887e4651bf83895da69",
       "bytes": 16783
-    },
-    {
-      "name": "documents-to-markdown",
-      "version": "0.1.2",
-      "description": "Reads, outlines and searches PDF, Word, Excel, PowerPoint, EPUB and HTML documents as clean Markdown.",
-      "permissions": [
-        "network"
-      ],
-      "author": {
-        "name": "Lee-xeo",
-        "official": true
-      },
-      "i18n": {
-        "zh-CN": {
-          "displayName": "文档转 Markdown",
-          "description": "将 PDF、Word、Excel、PowerPoint、EPUB 和 HTML 文档读取、提取大纲并搜索为整洁的 Markdown。"
-        },
-        "zh-TW": {
-          "displayName": "文件轉 Markdown",
-          "description": "將 PDF、Word、Excel、PowerPoint、EPUB 與 HTML 文件讀取、擷取大綱並搜尋為整潔的 Markdown。"
-        },
-        "ru": {
-          "displayName": "Документы в Markdown",
-          "description": "Читает, строит оглавление и ищет по документам PDF, Word, Excel, PowerPoint, EPUB и HTML в виде чистого Markdown."
-        },
-        "ar": {
-          "displayName": "تحويل المستندات إلى Markdown",
-          "description": "يقرأ مستندات PDF وWord وExcel وPowerPoint وEPUB وHTML ويلخّص هيكلها ويبحث فيها بصيغة Markdown منظّمة."
-        },
-        "fa": {
-          "displayName": "تبدیل اسناد به Markdown",
-          "description": "اسناد PDF، Word، Excel، PowerPoint، EPUB و HTML را به صورت Markdown تمیز می‌خواند، فهرست‌بندی و جستجو می‌کند."
-        },
-        "ko": {
-          "displayName": "문서 Markdown 변환",
-          "description": "PDF, Word, Excel, PowerPoint, EPUB, HTML 문서를 깔끔한 Markdown으로 읽고 개요를 추출하며 검색합니다."
-        },
-        "es": {
-          "displayName": "Documentos a Markdown",
-          "description": "Lee, esquematiza y busca en documentos PDF, Word, Excel, PowerPoint, EPUB y HTML como Markdown limpio."
-        },
-        "my": {
-          "displayName": "စာရွက်စာတမ်းမှ Markdown သို့",
-          "description": "PDF၊ Word၊ Excel၊ PowerPoint၊ EPUB နှင့် HTML စာရွက်စာတမ်းများကို သန့်ရှင်းသော Markdown အဖြစ် ဖတ်ခြင်း၊ အကျဉ်းချုပ်ထုတ်ခြင်းနှင့် ရှာဖွေခြင်းတို့ ပြုလုပ်သည်။"
-        },
-        "be": {
-          "displayName": "Дакументы ў Markdown",
-          "description": "Чытае, стварае структуру і шукае ў дакументах PDF, Word, Excel, PowerPoint, EPUB і HTML у выглядзе чыстага Markdown."
-        },
-        "ps": {
-          "displayName": "اسناد Markdown ته",
-          "description": "د PDF، Word، Excel، PowerPoint، EPUB او HTML اسناد د پاک Markdown په بڼه لولي، لنډیز یې جوړوي او پلټنه پکې کوي."
-        },
-        "prs": {
-          "displayName": "اسناد به Markdown",
-          "description": "اسناد PDF، Word، Excel، PowerPoint، EPUB و HTML را به شکل Markdown منظم می‌خواند، فهرست می‌سازد و جستجو می‌کند."
-        },
-        "am": {
-          "displayName": "ሰነዶች ወደ Markdown",
-          "description": "የPDF፣ Word፣ Excel፣ PowerPoint፣ EPUB እና HTML ሰነዶችን እንደ ንጹህ Markdown ያነባል፣ ዝርዝር ያወጣል እንዲሁም ይፈልጋል።"
-        },
-        "so": {
-          "displayName": "Dukumentiyada loo beddelo Markdown",
-          "description": "Waxay akhrisaa, soo koobtaa oo ka baartaa dukumentiyada PDF, Word, Excel, PowerPoint, EPUB iyo HTML iyagoo ah Markdown nadiif ah."
-        },
-        "ti": {
-          "displayName": "ሰነዳት ናብ Markdown",
-          "description": "ሰነዳት PDF፡ Word፡ Excel፡ PowerPoint፡ EPUB ከምኡውን HTML ከም ጽሩይ Markdown የንብብ፡ ሓፈሻዊ መስመር የውጽእን ይደልን።"
-        },
-        "fr": {
-          "displayName": "Documents vers Markdown",
-          "description": "Lit, structure et recherche dans des documents PDF, Word, Excel, PowerPoint, EPUB et HTML sous forme de Markdown propre."
-        }
-      },
-      "displayName": "Documents to Markdown",
-      "categories": [
-        "files",
-        "productivity"
-      ],
-      "kind": "guest",
-      "engines": {
-        "cage": ">=0.1.8"
-      },
-      "contributes": {
-        "mcpServers": [
-          {
-            "id": "documents",
-            "command": [
-              "python3",
-              "launcher.py"
-            ]
-          }
-        ]
-      },
-      "runtime": "npx",
-      "source": {
-        "project": "SylphxAI/anymd",
-        "version": "8.5.13",
-        "license": "MIT",
-        "url": "https://github.com/SylphxAI/anymd"
-      },
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/documents-to-markdown/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/documents-to-markdown-0.1.2.tar.gz",
-      "sha256": "7a527ab11c201603bdbe61067d5efc44a6cab727273a9cc8365483ef5aecd5f5",
-      "bytes": 13753
-    },
-    {
-      "name": "excel-workbooks",
-      "version": "0.2.1",
-      "description": "Creates, reads and edits Excel workbooks (.xlsx): cells, formulas, formatting, charts, pivot tables and sheets. Microsoft Excel is not needed.",
-      "permissions": [],
-      "author": {
-        "name": "Lee-xeo",
-        "official": true
-      },
-      "i18n": {
-        "zh-CN": {
-          "displayName": "Excel 工作簿",
-          "description": "创建、读取和编辑 Excel 工作簿（.xlsx）：单元格、公式、格式、图表、数据透视表与工作表。无需安装 Microsoft Excel。"
-        },
-        "zh-TW": {
-          "displayName": "Excel 活頁簿",
-          "description": "建立、讀取與編輯 Excel 活頁簿（.xlsx）：儲存格、公式、格式、圖表、樞紐分析表與工作表。無需安裝 Microsoft Excel。"
-        },
-        "ru": {
-          "displayName": "Книги Excel",
-          "description": "Создаёт, читает и редактирует книги Excel (.xlsx): ячейки, формулы, форматирование, диаграммы, сводные таблицы и листы. Microsoft Excel не требуется."
-        },
-        "ar": {
-          "displayName": "مصنفات Excel",
-          "description": "ينشئ مصنفات Excel (.xlsx) ويقرأها ويعدلها: الخلايا والصيغ والتنسيق والمخططات والجداول المحورية والأوراق. لا يتطلب Microsoft Excel."
-        },
-        "fa": {
-          "displayName": "کارپوشه‌های Excel",
-          "description": "فایل‌های Excel (.xlsx) را ایجاد، خواندن و ویرایش می‌کند: سلول‌ها، فرمول‌ها، قالب‌بندی، نمودارها، جداول محوری و کاربرگ‌ها. بدون نیاز به Microsoft Excel."
-        },
-        "ko": {
-          "displayName": "Excel 통합 문서",
-          "description": "Excel 통합 문서(.xlsx)를 생성·읽기·편집합니다: 셀, 수식, 서식, 차트, 피벗 테이블, 시트. Microsoft Excel이 필요하지 않습니다."
-        },
-        "es": {
-          "displayName": "Libros de Excel",
-          "description": "Crea, lee y edita libros de Excel (.xlsx): celdas, fórmulas, formato, gráficos, tablas dinámicas y hojas. No requiere Microsoft Excel."
-        },
-        "my": {
-          "displayName": "Excel စာရင်းဇယားများ",
-          "description": "Excel ဖိုင်များ (.xlsx) ကို ဖန်တီးခြင်း၊ ဖတ်ခြင်းနှင့် ပြင်ဆင်ခြင်း- ဆဲလ်များ၊ ဖော်မြူလာများ၊ ပုံစံချခြင်း၊ ဇယားပုံများ၊ pivot table နှင့် စာမျက်နှာများ။ Microsoft Excel မလိုအပ်ပါ။"
-        },
-        "be": {
-          "displayName": "Кнігі Excel",
-          "description": "Стварае, чытае і рэдагуе кнігі Excel (.xlsx): ячэйкі, формулы, фарматаванне, дыяграмы, зводныя табліцы і аркушы. Microsoft Excel не патрабуецца."
-        },
-        "ps": {
-          "displayName": "د Excel کارکتابونه",
-          "description": "د Excel فایلونه (.xlsx) جوړوي، لولي او سموي: حجرې، فورمولونه، بڼه، چارټونه، پېوټ جدولونه او پاڼې. Microsoft Excel ته اړتیا نشته."
-        },
-        "prs": {
-          "displayName": "کتابچه‌های Excel",
-          "description": "فایل‌های Excel (.xlsx) را ایجاد، خواندن و ویرایش می‌کند: حجره‌ها، فرمول‌ها، قالب‌بندی، چارت‌ها، جداول محوری و ورق‌ها. به Microsoft Excel نیاز نیست."
-        },
-        "am": {
-          "displayName": "የExcel የሥራ መጽሐፍት",
-          "description": "የExcel የሥራ መጽሐፍትን (.xlsx) ይፈጥራል፣ ያነባል እና ያርማል፦ ሕዋሳት፣ ቀመሮች፣ ቅርጸት፣ ገበታዎች፣ ፒቮት ሰንጠረዦች እና ሉሆች። Microsoft Excel አያስፈልግም።"
-        },
-        "so": {
-          "displayName": "Buugaagta Excel",
-          "description": "Waxay abuurtaa, akhrisaa oo tafatirtaa faylasha Excel (.xlsx): unugyada, qaacidooyinka, qaabeynta, jaantusyada, miisaska pivot iyo waraaqaha. Looma baahna Microsoft Excel."
-        },
-        "ti": {
-          "displayName": "መጻሕፍቲ ስራሕ Excel",
-          "description": "ፋይላት Excel (.xlsx) ይፈጥር፡ የንብብን ይኣርምን፡ ዋህዮታት፡ ፎርሙላታት፡ ቅርጺ፡ ቻርታት፡ ፒቮት ሰደቓታትን ገጻትን። Microsoft Excel ኣየድልን።"
-        },
-        "fr": {
-          "displayName": "Classeurs Excel",
-          "description": "Crée, lit et modifie des classeurs Excel (.xlsx) : cellules, formules, mise en forme, graphiques, tableaux croisés dynamiques et feuilles. Microsoft Excel n'est pas nécessaire."
-        }
-      },
-      "displayName": "Excel Workbooks",
-      "categories": [
-        "productivity",
-        "files"
-      ],
-      "kind": "guest",
-      "engines": {
-        "cage": ">=0.1.8"
-      },
-      "contributes": {
-        "mcpServers": [
-          {
-            "id": "excel",
-            "command": [
-              "python3",
-              "launcher.py",
-              "--allow-dir",
-              "${PROJECT_DIR}"
-            ]
-          }
-        ]
-      },
-      "runtime": "python3",
-      "source": {
-        "project": "haris-musa/excel-mcp-server",
-        "version": "2.3.2",
-        "license": "MIT",
-        "url": "https://github.com/haris-musa/excel-mcp-server"
-      },
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/excel-workbooks/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/excel-workbooks-0.2.1.tar.gz",
-      "sha256": "c42527ad3e88453c492a8d8ebed623d08dcf4cc9e2df4c32e015123a7bb76aeb",
-      "bytes": 34935
-    },
-    {
-      "name": "git-repository",
-      "version": "0.1.2",
-      "description": "Reads and manages Git repositories: status, diffs, commit log, branches, staging, committing and showing objects.",
-      "permissions": [],
-      "author": {
-        "name": "Lee-xeo",
-        "official": true
-      },
-      "i18n": {
-        "zh-CN": {
-          "displayName": "Git 仓库",
-          "description": "读取和管理 Git 仓库：查看状态、差异对比、提交日志、分支、暂存、提交以及查看对象内容。"
-        },
-        "zh-TW": {
-          "displayName": "Git 儲存庫",
-          "description": "讀取與管理 Git 儲存庫：檢視狀態、差異比對、提交日誌、分支、暫存、提交以及檢視物件內容。"
-        },
-        "ru": {
-          "displayName": "Репозиторий Git",
-          "description": "Читает и управляет репозиториями Git: статус, диффы, журнал коммитов, ветки, индексация, коммиты и просмотр объектов."
-        },
-        "ar": {
-          "displayName": "مستودع Git",
-          "description": "يقرأ مستودعات Git ويديرها: الحالة والفروقات وسجل الالتزامات والفروع والتهيئة والالتزام وعرض الكائنات."
-        },
-        "fa": {
-          "displayName": "مخزن Git",
-          "description": "مخازن Git را می‌خواند و مدیریت می‌کند: وضعیت، تفاوت‌ها، تاریخچه کامیت‌ها، شاخه‌ها، آماده‌سازی، کامیت و نمایش اشیا."
-        },
-        "ko": {
-          "displayName": "Git 저장소",
-          "description": "Git 저장소를 읽고 관리합니다: 상태, 변경 차이(diff), 커밋 로그, 브랜치, 스테이징, 커밋 및 개체 보기."
-        },
-        "es": {
-          "displayName": "Repositorio Git",
-          "description": "Lee y gestiona repositorios Git: estado, diferencias, historial de commits, ramas, preparación, confirmaciones e inspección de objetos."
-        },
-        "my": {
-          "displayName": "Git သိုလှောင်ရုံ",
-          "description": "Git repository များကို ဖတ်ရှုစီမံသည်- အခြေအနေ၊ diff များ၊ commit မှတ်တမ်း၊ branch များ၊ stage လုပ်ခြင်း၊ commit လုပ်ခြင်းနှင့် object များကြည့်ခြင်း။"
-        },
-        "be": {
-          "displayName": "Рэпазіторый Git",
-          "description": "Чытае і кіруе рэпазіторыямі Git: статус, розніцы, журнал камітаў, галіны, індэксацыя, каміты і прагляд аб'ектаў."
-        },
-        "ps": {
-          "displayName": "د Git زېرمه",
-          "description": "د Git زېرمې لولي او اداره کوي: حالت، توپیرونه، د کمېټ تاریخچه، څانګې، چمتو کول، کمېټ کول او د شیانو ښودل."
-        },
-        "prs": {
-          "displayName": "مخزن Git",
-          "description": "مخازن Git را می‌خواند و مدیریت می‌کند: وضعیت، تفاوت‌ها، گزارش کمیت‌ها، شاخه‌ها، آماده‌سازی، کمیت و نمایش اشیا."
-        },
-        "am": {
-          "displayName": "የGit ማከማቻ",
-          "description": "የGit ማከማቻዎችን ያነባል እና ያስተዳድራል፦ ሁኔታ፣ ልዩነቶች፣ የኮሚት ታሪክ፣ ቅርንጫፎች፣ ማዘጋጀት፣ ኮሚት ማድረግ እና ቁሶችን ማሳየት።"
-        },
-        "so": {
-          "displayName": "Kaydka Git",
-          "description": "Waxay akhrisaa oo maamushaa kaydadka Git: xaaladda, kala duwanaanshaha, diiwaanka commit-yada, laamaha, diyaarinta, commit-ka iyo muujinta walxaha."
-        },
-        "ti": {
-          "displayName": "መኽዘን Git",
-          "description": "መኽዘናት Git የንብብን የመሓድርን፡ ኩነታት፡ ፍልልያት፡ መዝገብ ኮሚት፡ ጨናፍር፡ ምድላው፡ ኮሚት ምግባርን ኣቕሑ ምርኣይን።"
-        },
-        "fr": {
-          "displayName": "Dépôt Git",
-          "description": "Lit et gère des dépôts Git : état, diffs, journal des commits, branches, indexation, commits et affichage des objets."
-        }
-      },
-      "displayName": "Git Repository",
-      "categories": [
-        "developer"
-      ],
-      "kind": "guest",
-      "engines": {
-        "cage": ">=0.1.8"
-      },
-      "contributes": {
-        "mcpServers": [
-          {
-            "id": "git",
-            "command": [
-              "python3",
-              "launcher.py"
-            ]
-          }
-        ]
-      },
-      "runtime": "python3",
-      "source": {
-        "project": "modelcontextprotocol/servers",
-        "version": "2026.11.18",
-        "license": "MIT",
-        "url": "https://github.com/modelcontextprotocol/servers/tree/v2.5.0/src/git"
-      },
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/git-repository/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/git-repository-0.1.2.tar.gz",
-      "sha256": "90ee73943ca207b2e5f372662f898339e81566673a4c70b0dad49b252049ab74",
-      "bytes": 20520
     },
     {
       "name": "knowledge-memory",
@@ -1473,8 +1077,8 @@
         "license": "Apache-2.0 AND MIT",
         "url": "https://github.com/modelcontextprotocol/servers/tree/v2.5.0/src/memory"
       },
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/knowledge-memory/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/knowledge-memory-0.1.2.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/knowledge-memory/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/knowledge-memory-0.1.2.tar.gz",
       "sha256": "a5c743093cf1165fbaedace3de50393c3ee2ff66753a5add1f2af52be8a36e6b",
       "bytes": 3254796
     },
@@ -1573,8 +1177,8 @@
         ]
       },
       "runtime": "python3",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/linux-desktop/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/linux-desktop-0.1.2.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/linux-desktop/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/linux-desktop-0.1.2.tar.gz",
       "sha256": "04fc2776be4a62729dd77a44aa1ccac10866407ac667e31973205ed9a766575f",
       "bytes": 19726
     },
@@ -1675,325 +1279,10 @@
         ]
       },
       "runtime": "python3",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/local-preview/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/local-preview-0.1.1.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/local-preview/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/local-preview-0.1.1.tar.gz",
       "sha256": "97a8fa033f6484aa7f647dd14f0410b6d8386c807e0b6ee405a46079bdb1dff4",
       "bytes": 8697
-    },
-    {
-      "name": "powerpoint-slides",
-      "version": "0.2.1",
-      "description": "Creates, reads and edits PowerPoint presentations (.pptx): slides, text, tables, charts, images and templates. Microsoft PowerPoint is not needed.",
-      "permissions": [],
-      "author": {
-        "name": "Lee-xeo",
-        "official": true
-      },
-      "i18n": {
-        "zh-CN": {
-          "displayName": "PowerPoint 演示文稿",
-          "description": "创建、读取和编辑 PowerPoint 演示文稿（.pptx）：幻灯片、文字、表格、图表、图片与模板。无需安装 Microsoft PowerPoint。"
-        },
-        "zh-TW": {
-          "displayName": "PowerPoint 簡報",
-          "description": "建立、讀取與編輯 PowerPoint 簡報（.pptx）：投影片、文字、表格、圖表、圖片與範本。無需安裝 Microsoft PowerPoint。"
-        },
-        "ru": {
-          "displayName": "Презентации PowerPoint",
-          "description": "Создаёт, читает и редактирует презентации PowerPoint (.pptx): слайды, текст, таблицы, диаграммы, изображения и шаблоны. Microsoft PowerPoint не требуется."
-        },
-        "ar": {
-          "displayName": "عروض PowerPoint التقديمية",
-          "description": "ينشئ عروض PowerPoint (.pptx) ويقرأها ويعدلها: الشرائح والنصوص والجداول والمخططات والصور والقوالب. لا يتطلب Microsoft PowerPoint."
-        },
-        "fa": {
-          "displayName": "اسلایدهای PowerPoint",
-          "description": "ارائه‌های PowerPoint (.pptx) را ایجاد، خواندن و ویرایش می‌کند: اسلایدها، متن، جدول‌ها، نمودارها، تصاویر و قالب‌ها. بدون نیاز به Microsoft PowerPoint."
-        },
-        "ko": {
-          "displayName": "PowerPoint 프레젠테이션",
-          "description": "PowerPoint 프레젠테이션(.pptx)을 생성·읽기·편집합니다: 슬라이드, 텍스트, 표, 차트, 이미지, 서식 파일. Microsoft PowerPoint가 필요하지 않습니다."
-        },
-        "es": {
-          "displayName": "Presentaciones de PowerPoint",
-          "description": "Crea, lee y edita presentaciones de PowerPoint (.pptx): diapositivas, texto, tablas, gráficos, imágenes y plantillas. No requiere Microsoft PowerPoint."
-        },
-        "my": {
-          "displayName": "PowerPoint တင်ဆက်မှုများ",
-          "description": "PowerPoint တင်ဆက်မှုများ (.pptx) ကို ဖန်တီးခြင်း၊ ဖတ်ခြင်းနှင့် ပြင်ဆင်ခြင်း- ဆလိုက်များ၊ စာသား၊ ဇယား၊ ပုံကြမ်း၊ ဓာတ်ပုံနှင့် ပုံစံခွက်များ။ Microsoft PowerPoint မလိုအပ်ပါ။"
-        },
-        "be": {
-          "displayName": "Прэзентацыі PowerPoint",
-          "description": "Стварае, чытае і рэдагуе прэзентацыі PowerPoint (.pptx): слайды, тэкст, табліцы, дыяграмы, выявы і шаблоны. Microsoft PowerPoint не патрабуецца."
-        },
-        "ps": {
-          "displayName": "د PowerPoint سلایډونه",
-          "description": "د PowerPoint پریزنټېشنونه (.pptx) جوړوي، لولي او سموي: سلایډونه، متن، جدولونه، چارټونه، انځورونه او کينډۍ. Microsoft PowerPoint ته اړتیا نشته."
-        },
-        "prs": {
-          "displayName": "سلایدهای PowerPoint",
-          "description": "ارائه‌های PowerPoint (.pptx) را ایجاد، خواندن و ویرایش می‌کند: سلایدها، متن، جدول‌ها، چارت‌ها، تصاویر و قالب‌ها. به Microsoft PowerPoint نیاز نیست."
-        },
-        "am": {
-          "displayName": "የPowerPoint ስላይዶች",
-          "description": "የPowerPoint አቀራረቦችን (.pptx) ይፈጥራል፣ ያነባል እና ያርማል፦ ስላይዶች፣ ጽሑፍ፣ ሰንጠረዦች፣ ገበታዎች፣ ምስሎች እና አብነቶች። Microsoft PowerPoint አያስፈልግም።"
-        },
-        "so": {
-          "displayName": "Soo-bandhigyada PowerPoint",
-          "description": "Waxay abuurtaa, akhrisaa oo tafatirtaa soo-bandhigyada PowerPoint (.pptx): bogagga, qoraalka, miisaska, jaantusyada, sawirrada iyo qaababka. Looma baahna Microsoft PowerPoint."
-        },
-        "ti": {
-          "displayName": "ስላይዳት PowerPoint",
-          "description": "ኣቕርቦታት PowerPoint (.pptx) ይፈጥር፡ የንብብን ይኣርምን፡ ስላይዳት፡ ጽሑፍ፡ ሰደቓታት፡ ቻርታት፡ ስእልታትን ቅጥዕታትን። Microsoft PowerPoint ኣየድልን።"
-        },
-        "fr": {
-          "displayName": "Présentations PowerPoint",
-          "description": "Crée, lit et modifie des présentations PowerPoint (.pptx) : diapositives, texte, tableaux, graphiques, images et modèles. Microsoft PowerPoint n'est pas nécessaire."
-        }
-      },
-      "displayName": "PowerPoint Slides",
-      "categories": [
-        "productivity",
-        "files"
-      ],
-      "kind": "guest",
-      "engines": {
-        "cage": ">=0.1.8"
-      },
-      "contributes": {
-        "mcpServers": [
-          {
-            "id": "powerpoint",
-            "command": [
-              "python3",
-              "launcher.py"
-            ]
-          }
-        ]
-      },
-      "runtime": "python3",
-      "source": {
-        "project": "GongRzhe/Office-PowerPoint-MCP-Server",
-        "version": "2.0.7",
-        "license": "MIT",
-        "url": "https://github.com/GongRzhe/Office-PowerPoint-MCP-Server"
-      },
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/powerpoint-slides/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/powerpoint-slides-0.2.1.tar.gz",
-      "sha256": "85ccbad43546f572b914e2d97a7ce4f5ed5672677b3d71810c1693c0a5dd927a",
-      "bytes": 27747
-    },
-    {
-      "name": "sqlite",
-      "version": "0.1.1",
-      "description": "Queries and manages local SQLite databases: SELECT and write SQL statements, create tables, inspect schemas and record analysis notes.",
-      "permissions": [],
-      "author": {
-        "name": "Lee-xeo",
-        "official": true
-      },
-      "i18n": {
-        "zh-CN": {
-          "displayName": "SQLite",
-          "description": "查询和管理本地 SQLite 数据库：执行 SELECT 和写入 SQL 语句、建表、检查表结构以及记录分析笔记。"
-        },
-        "zh-TW": {
-          "displayName": "SQLite",
-          "description": "查詢與管理本機 SQLite 資料庫：執行 SELECT 與寫入 SQL 陳述式、建立資料表、檢查結構描述以及記錄分析筆記。"
-        },
-        "ru": {
-          "displayName": "SQLite",
-          "description": "Выполняет запросы и управляет локальными базами данных SQLite: SELECT и изменение данных, создание таблиц, просмотр схем и сохранение аналитических заметок."
-        },
-        "ar": {
-          "displayName": "SQLite",
-          "description": "يستعلم عن قواعد بيانات SQLite المحلية ويديرها: تنفيذ عبارات SELECT والكتابة، إنشاء الجداول، فحص المخططات وتسجيل ملاحظات التحليل."
-        },
-        "fa": {
-          "displayName": "SQLite",
-          "description": "پایگاه‌داده‌های محلی SQLite را پرس‌وجو و مدیریت می‌کند: اجرای دستورات SELECT و نوشتن SQL، ایجاد جدول، بررسی ساختار و ثبت یادداشت‌های تحلیلی."
-        },
-        "ko": {
-          "displayName": "SQLite",
-          "description": "로컬 SQLite 데이터베이스를 조회하고 관리합니다: SELECT 및 쓰기 SQL 실행, 테이블 생성, 스키마 검사 및 분석 메모 기록."
-        },
-        "es": {
-          "displayName": "SQLite",
-          "description": "Consulta y gestiona bases de datos SQLite locales: sentencias SQL de lectura y escritura, creación de tablas, inspección de esquemas y registro de notas de análisis."
-        },
-        "my": {
-          "displayName": "SQLite",
-          "description": "စက်တွင်း SQLite ဒေတာဘေ့စ်များကို ရှာဖွေစီမံသည်- SELECT နှင့် ရေးသွင်း SQL စာကြောင်းများ run ခြင်း၊ ဇယားဖန်တီးခြင်း၊ schema စစ်ဆေးခြင်းနှင့် ခွဲခြမ်းစိတ်ဖြာမှတ်စုများ မှတ်တမ်းတင်ခြင်း။"
-        },
-        "be": {
-          "displayName": "SQLite",
-          "description": "Выконвае запыты і кіруе лакальнымі базамі даных SQLite: аператары SELECT і запісу SQL, стварэнне табліц, прагляд схем і запіс нататак аналізу."
-        },
-        "ps": {
-          "displayName": "SQLite",
-          "description": "سیمه‌ییز SQLite ډېټابېسونه پلټي او اداره کوي: د SELECT او لیکلو SQL جملې، جدول جوړول، د سکیمې کتل او د شننې یادښتونه ثبتول."
-        },
-        "prs": {
-          "displayName": "SQLite",
-          "description": "پایگاه‌های داده محلی SQLite را پرس‌وجو و مدیریت می‌کند: اجرای دستورات SELECT و نوشتن SQL، ایجاد جدول، بررسی ساختار و ثبت یادداشت‌های تحلیل."
-        },
-        "am": {
-          "displayName": "SQLite",
-          "description": "የአካባቢ SQLite ዳታቤዞችን ይጠይቃል እና ያስተዳድራል፦ SELECT እና የመጻፊያ SQL ትዕዛዞች፣ ሠንጠረዦችን መፍጠር፣ መዋቅር መፈተሽ እና የትንታኔ ማስታወሻዎችን መመዝገብ።"
-        },
-        "so": {
-          "displayName": "SQLite",
-          "description": "Waxay weydiisaa oo maamushaa kaydadka xogta SQLite ee maxalliga ah: amarada SELECT iyo qorista SQL, abuurista miisaska, eegista qaab-dhismeedka iyo diiwaangelinta qoraallada falanqaynta."
-        },
-        "ti": {
-          "displayName": "SQLite",
-          "description": "ከባብያዊ ዳታቤዛት SQLite ይሓትትን የመሓድርን፡ ትእዛዛት SELECTን ጽሕፈት SQLን፡ ሰደቓ ምፍጣር፡ ቅርጺ ምምርማርን መዘኻኸሪታት ትንተና ምምዝጋብን።"
-        },
-        "fr": {
-          "displayName": "SQLite",
-          "description": "Interroge et gère des bases de données SQLite locales : requêtes SQL de lecture et d'écriture, création de tables, inspection de schémas et prise de notes d'analyse."
-        }
-      },
-      "displayName": "SQLite",
-      "categories": [
-        "developer",
-        "files"
-      ],
-      "kind": "guest",
-      "engines": {
-        "cage": ">=0.1.8"
-      },
-      "contributes": {
-        "mcpServers": [
-          {
-            "id": "sqlite",
-            "command": [
-              "python3",
-              "launcher.py"
-            ]
-          }
-        ]
-      },
-      "runtime": "python3",
-      "source": {
-        "project": "modelcontextprotocol/servers-archived",
-        "version": "2025.4.25",
-        "license": "MIT",
-        "url": "https://github.com/modelcontextprotocol/servers-archived"
-      },
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/sqlite/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/sqlite-0.1.1.tar.gz",
-      "sha256": "fd7745218945435b30344263990477bdf591a4bef07388e55d70332a3a072cfb",
-      "bytes": 19495
-    },
-    {
-      "name": "system-status",
-      "version": "0.2.1",
-      "description": "Shows real-time CPU, memory, disk and network telemetry of the environment in a draggable translucent floating overlay and as a tool for Claude.",
-      "permissions": [],
-      "author": {
-        "name": "Lee-xeo",
-        "official": true
-      },
-      "i18n": {
-        "zh-CN": {
-          "displayName": "系统状态",
-          "description": "以可拖动的半透明浮窗和 Claude 工具实时展示当前环境的 CPU、内存、磁盘与网络状态。"
-        },
-        "zh-TW": {
-          "displayName": "系統狀態",
-          "description": "以可拖動的半透明浮窗與 Claude 工具即時顯示目前環境的 CPU、記憶體、磁碟與網路狀態。"
-        },
-        "ru": {
-          "displayName": "Состояние системы",
-          "description": "Показывает в реальном времени загрузку процессора, памяти, диска и сети среды в перетаскиваемом полупрозрачном плавающем окне и как инструмент для Claude."
-        },
-        "ar": {
-          "displayName": "حالة النظام",
-          "description": "يعرض في الوقت الفعلي استخدام المعالج والذاكرة والقرص والشبكة في البيئة ضمن نافذة عائمة شبه شفافة قابلة للسحب وكأداة لـ Claude."
-        },
-        "fa": {
-          "displayName": "وضعیت سیستم",
-          "description": "مصرف لحظه‌ای پردازنده، حافظه، دیسک و شبکه محیط را در یک پنجره شناور نیمه‌شفاف و قابل جابه‌جایی و همچنین به صورت ابزار به Claude نشان می‌دهد."
-        },
-        "ko": {
-          "displayName": "시스템 상태",
-          "description": "환경의 실시간 CPU, 메모리, 디스크 및 네트워크 상태를 드래그 가능한 반투명 플로팅 창과 Claude 도구로 보여줍니다."
-        },
-        "es": {
-          "displayName": "Estado del sistema",
-          "description": "Muestra en tiempo real el uso de CPU, memoria, disco y red del entorno en una ventana flotante semitransparente arrastrable y como herramienta para Claude."
-        },
-        "my": {
-          "displayName": "စနစ်အခြေအနေ",
-          "description": "ပတ်ဝန်းကျင်၏ CPU၊ မန်မိုရီ၊ ဒစ်ခ်နှင့် ကွန်ရက်အခြေအနေကို ဆွဲရွှေ့နိုင်သော တစ်ဝက်ဖောက်ထွင်းဝင်းဒိုးငယ်နှင့် Claude ကိရိယာအဖြစ် အချိန်နှင့်တစ်ပြေးညီ ပြသသည်။"
-        },
-        "be": {
-          "displayName": "Стан сістэмы",
-          "description": "Паказвае ў рэальным часе загрузку працэсара, памяці, дыска і сеткі асяроддзя ў паўпразрыстым плавальным акне і як інструмент для Claude."
-        },
-        "ps": {
-          "displayName": "د سیسټم حالت",
-          "description": "د چاپېریال د CPU، حافظې، ډیسک او شبکې ژوندۍ شمېرې په یوه د کش کولو وړ نیمه روڼه لامبو وهونکې کړکۍ کې او د Claude لپاره د وسیلې په توګه ښيي."
-        },
-        "prs": {
-          "displayName": "وضعیت سیستم",
-          "description": "مصرف لحظه‌ای پردازنده، حافظه، دیسک و شبکه محیط را در یک پنجره شناور نیمه‌شفاف و قابل انتقال و همچنان به شکل ابزار برای Claude نشان می‌دهد."
-        },
-        "am": {
-          "displayName": "የስርዓት ሁኔታ",
-          "description": "የአካባቢውን የቀጥታ CPU፣ ማህደረ ትውስታ፣ ዲስክ እና አውታረ መረብ ሁኔታ በሚጎተት ከፊል-ግልጽ ተንሳፋፊ መስኮት እና ለClaude እንደ መሳሪያ ያሳያል።"
-        },
-        "so": {
-          "displayName": "Xaaladda Nidaamka",
-          "description": "Waxay si toos ah u muujisaa isticmaalka CPU, xusuusta, diska iyo shabakadda ee deegaanka iyadoo ku jirta daaqad sabbeysa oo nus-muuqata oo la jiidi karo iyo qalab u ah Claude."
-        },
-        "ti": {
-          "displayName": "ኩነታት ስርዓት",
-          "description": "ናይቲ ከባቢ ቀጥታዊ ኣጠቓቕማ CPU፡ ዝኽሪ፡ ዲስክን መርበብን ኣብ ዝጎተት ፍርቂ-ብሩህ ተንሳፋፊ መስኮትን ንClaude ከም መሳርሕን የርኢ።"
-        },
-        "fr": {
-          "displayName": "État du système",
-          "description": "Affiche en temps réel la charge CPU, la mémoire, le disque et le réseau de l'environnement dans une fenêtre flottante translucide déplaçable et comme outil pour Claude."
-        }
-      },
-      "displayName": "System Status",
-      "categories": [
-        "system",
-        "example"
-      ],
-      "kind": "guest",
-      "engines": {
-        "cage": ">=0.2.1"
-      },
-      "contributes": {
-        "mcpServers": [
-          {
-            "id": "status",
-            "command": [
-              "python3",
-              "server.py"
-            ]
-          }
-        ],
-        "views": [
-          {
-            "id": "status",
-            "title": "System Status",
-            "icon": "icon.svg",
-            "entry": "view/index.html",
-            "server": "status",
-            "presentation": "floating",
-            "width": 316,
-            "height": 286
-          }
-        ]
-      },
-      "runtime": "python3",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/system-status/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/system-status-0.2.1.tar.gz",
-      "sha256": "51f3545bdf0101ffe4ae9d3575dbb2ea80d602e5e8ab2fadc5cd035f8fba06ce",
-      "bytes": 12916
     },
     {
       "name": "text-to-speech",
@@ -2191,218 +1480,10 @@
         ]
       },
       "runtime": "python3",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/text-to-speech/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/text-to-speech-0.1.0.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/text-to-speech/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/text-to-speech-0.1.0.tar.gz",
       "sha256": "91c9575c5a9c3c28cf91ea5e9ad29c68c226f84b56d9aec8a9406d02df7dca57",
       "bytes": 30887
-    },
-    {
-      "name": "web-fetch",
-      "version": "0.1.2",
-      "description": "Fetches web pages and converts HTML content to clean Markdown for reading, with pagination and robots.txt support.",
-      "permissions": [
-        "network"
-      ],
-      "author": {
-        "name": "Lee-xeo",
-        "official": true
-      },
-      "i18n": {
-        "zh-CN": {
-          "displayName": "网页抓取",
-          "description": "抓取网页并将 HTML 内容转换为整洁的 Markdown 以便阅读，支持分页读取与 robots.txt 协议。"
-        },
-        "zh-TW": {
-          "displayName": "網頁擷取",
-          "description": "擷取網頁並將 HTML 內容轉換為整潔的 Markdown 以利閱讀，支援分頁讀取與 robots.txt 規範。"
-        },
-        "ru": {
-          "displayName": "Загрузка веб-страниц",
-          "description": "Загружает веб-страницы и преобразует HTML в чистый Markdown для чтения с поддержкой постраничного вывода и robots.txt."
-        },
-        "ar": {
-          "displayName": "جلب صفحات الويب",
-          "description": "يجلب صفحات الويب ويحوّل محتوى HTML إلى Markdown منظّم للقراءة، مع دعم التقسيم إلى صفحات وملف robots.txt."
-        },
-        "fa": {
-          "displayName": "دریافت صفحات وب",
-          "description": "صفحات وب را دریافت کرده و محتوای HTML را برای مطالعه به Markdown تمیز تبدیل می‌کند، با پشتیبانی از صفحه‌بندی و robots.txt."
-        },
-        "ko": {
-          "displayName": "웹 가져오기",
-          "description": "웹 페이지를 가져와 HTML 콘텐츠를 읽기 쉬운 깔끔한 Markdown으로 변환하며, 페이지 분할과 robots.txt를 지원합니다."
-        },
-        "es": {
-          "displayName": "Obtención web",
-          "description": "Descarga páginas web y convierte su contenido HTML en Markdown limpio para su lectura, con paginación y soporte de robots.txt."
-        },
-        "my": {
-          "displayName": "ဝဘ်စာမျက်နှာ ရယူမှု",
-          "description": "ဝဘ်စာမျက်နှာများကို ရယူပြီး HTML အကြောင်းအရာကို ဖတ်ရလွယ်ကူသော Markdown အဖြစ် ပြောင်းလဲပေးသည်၊ စာမျက်နှာခွဲခြင်းနှင့် robots.txt ပံ့ပိုးမှု ပါဝင်သည်။"
-        },
-        "be": {
-          "displayName": "Загрузка вэб-старонак",
-          "description": "Загружае вэб-старонкі і ператварае HTML у чысты Markdown для чытання з падтрымкай пастаронкавага прагляду і robots.txt."
-        },
-        "ps": {
-          "displayName": "د وېب راوړل",
-          "description": "وېبپاڼې راولي او د HTML منځپانګه د لوستلو لپاره پاک Markdown ته اړوي، د پاڼه‌بندۍ او robots.txt له ملاتړ سره."
-        },
-        "prs": {
-          "displayName": "دریافت صفحات وب",
-          "description": "صفحات وب را دریافت می‌کند و محتوای HTML را برای خواندن به Markdown تمیز تبدیل می‌نماید، با پشتیبانی از صفحه‌بندی و robots.txt."
-        },
-        "am": {
-          "displayName": "የድር ማምጫ",
-          "description": "ድረ-ገጾችን ያመጣል እና የHTML ይዘትን ለንባብ ወደ ንጹህ Markdown ይቀይራል፣ ከገጽ ክፍፍል እና የrobots.txt ድጋፍ ጋር።"
-        },
-        "so": {
-          "displayName": "Soo-qaadista Webka",
-          "description": "Waxay soo qaaddaa boggaga webka waxayna u beddeshaa HTML-ka Markdown nadiif ah oo la akhrin karo, iyadoo leh kala-qaybinta boggaga iyo taageerada robots.txt."
-        },
-        "ti": {
-          "displayName": "ምምጻእ መርበብ",
-          "description": "መርበብ ገጻት የምጽእን ትሕዝቶ HTML ንንባብ ናብ ጽሩይ Markdown ይቕይርን፡ ምስ ደገፍ ምምቃል ገጻትን robots.txtን።"
-        },
-        "fr": {
-          "displayName": "Récupération web",
-          "description": "Récupère des pages web et convertit le contenu HTML en Markdown propre pour la lecture, avec pagination et prise en charge de robots.txt."
-        }
-      },
-      "displayName": "Web Fetch",
-      "categories": [
-        "network",
-        "productivity"
-      ],
-      "kind": "guest",
-      "engines": {
-        "cage": ">=0.1.8"
-      },
-      "contributes": {
-        "mcpServers": [
-          {
-            "id": "fetch",
-            "command": [
-              "python3",
-              "launcher.py"
-            ]
-          }
-        ]
-      },
-      "runtime": "python3",
-      "source": {
-        "project": "modelcontextprotocol/servers",
-        "version": "2026.11.18",
-        "license": "MIT",
-        "url": "https://github.com/modelcontextprotocol/servers/tree/v2.5.0/src/fetch"
-      },
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/web-fetch/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/web-fetch-0.1.2.tar.gz",
-      "sha256": "5df5d862f011d2d729c900ca5a777fcd040afaea985f4f4d0e74b0f4fb0f2340",
-      "bytes": 21344
-    },
-    {
-      "name": "word-documents",
-      "version": "0.2.1",
-      "description": "Creates, reads and edits Word documents (.docx): text, headings, tables, images, styles and comments. Microsoft Word is not needed.",
-      "permissions": [],
-      "author": {
-        "name": "Lee-xeo",
-        "official": true
-      },
-      "i18n": {
-        "zh-CN": {
-          "displayName": "Word 文档",
-          "description": "创建、读取和编辑 Word 文档（.docx）：正文、标题、表格、图片、样式与批注。无需安装 Microsoft Word。"
-        },
-        "zh-TW": {
-          "displayName": "Word 文件",
-          "description": "建立、讀取與編輯 Word 文件（.docx）：本文、標題、表格、圖片、樣式與註解。無需安裝 Microsoft Word。"
-        },
-        "ru": {
-          "displayName": "Документы Word",
-          "description": "Создаёт, читает и редактирует документы Word (.docx): текст, заголовки, таблицы, изображения, стили и комментарии. Microsoft Word не требуется."
-        },
-        "ar": {
-          "displayName": "مستندات Word",
-          "description": "ينشئ مستندات Word (.docx) ويقرأها ويعدلها: النصوص والعناوين والجداول والصور والأنماط والتعليقات. لا يتطلب Microsoft Word."
-        },
-        "fa": {
-          "displayName": "اسناد Word",
-          "description": "اسناد Word (.docx) را ایجاد، خواندن و ویرایش می‌کند: متن، سرصفحه‌ها، جدول‌ها، تصاویر، سبک‌ها و دیدگاه‌ها. بدون نیاز به Microsoft Word."
-        },
-        "ko": {
-          "displayName": "Word 문서",
-          "description": "Word 문서(.docx)를 생성·읽기·편집합니다: 본문, 제목, 표, 이미지, 스타일, 메모. Microsoft Word가 필요하지 않습니다."
-        },
-        "es": {
-          "displayName": "Documentos de Word",
-          "description": "Crea, lee y edita documentos de Word (.docx): texto, encabezados, tablas, imágenes, estilos y comentarios. No requiere Microsoft Word."
-        },
-        "my": {
-          "displayName": "Word စာရွက်စာတမ်းများ",
-          "description": "Word စာရွက်စာတမ်းများ (.docx) ကို ဖန်တီးခြင်း၊ ဖတ်ခြင်းနှင့် ပြင်ဆင်ခြင်း- စာသား၊ ခေါင်းစဉ်၊ ဇယား၊ ဓာတ်ပုံ၊ စတိုင်နှင့် မှတ်ချက်များ။ Microsoft Word မလိုအပ်ပါ။"
-        },
-        "be": {
-          "displayName": "Дакументы Word",
-          "description": "Стварае, чытае і рэдагуе дакументы Word (.docx): тэкст, загалоўкі, табліцы, выявы, стылі і каментарыі. Microsoft Word не патрабуецца."
-        },
-        "ps": {
-          "displayName": "د Word اسناد",
-          "description": "د Word اسناد (.docx) جوړوي، لولي او سموي: متن، سرلیکونه، جدولونه، انځورونه، سټایلونه او تبصرې. Microsoft Word ته اړتیا نشته."
-        },
-        "prs": {
-          "displayName": "اسناد Word",
-          "description": "اسناد Word (.docx) را ایجاد، خواندن و ویرایش می‌کند: متن، عنوان‌ها، جدول‌ها، تصاویر، سبک‌ها و یادداشت‌ها. به Microsoft Word نیاز نیست."
-        },
-        "am": {
-          "displayName": "የWord ሰነዶች",
-          "description": "የWord ሰነዶችን (.docx) ይፈጥራል፣ ያነባል እና ያርማል፦ ጽሑፍ፣ ርዕሶች፣ ሰንጠረዦች፣ ምስሎች፣ ቅጦች እና አስተያየቶች። Microsoft Word አያስፈልግም።"
-        },
-        "so": {
-          "displayName": "Dukumentiyada Word",
-          "description": "Waxay abuurtaa, akhrisaa oo tafatirtaa dukumentiyada Word (.docx): qoraalka, cinwaannada, miisaska, sawirrada, qaababka iyo faallooyinka. Looma baahna Microsoft Word."
-        },
-        "ti": {
-          "displayName": "ሰነዳት Word",
-          "description": "ሰነዳት Word (.docx) ይፈጥር፡ የንብብን ይኣርምን፡ ጽሑፍ፡ ኣርእስትታት፡ ሰደቓታት፡ ስእልታት፡ ቅዲታትን ርእይቶታትን። Microsoft Word ኣየድልን።"
-        },
-        "fr": {
-          "displayName": "Documents Word",
-          "description": "Crée, lit et modifie des documents Word (.docx) : texte, titres, tableaux, images, styles et commentaires. Microsoft Word n'est pas nécessaire."
-        }
-      },
-      "displayName": "Word Documents",
-      "categories": [
-        "productivity",
-        "files"
-      ],
-      "kind": "guest",
-      "engines": {
-        "cage": ">=0.1.8"
-      },
-      "contributes": {
-        "mcpServers": [
-          {
-            "id": "word",
-            "command": [
-              "python3",
-              "launcher.py"
-            ]
-          }
-        ]
-      },
-      "runtime": "python3",
-      "source": {
-        "project": "GongRzhe/Office-Word-MCP-Server",
-        "version": "1.1.11",
-        "license": "MIT",
-        "url": "https://github.com/GongRzhe/Office-Word-MCP-Server"
-      },
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/word-documents/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/word-documents-0.2.1.tar.gz",
-      "sha256": "b3a762933f382dea0f626798a582d1f33b8fbbc1cf7fd6faa0191b1b8281ceaa",
-      "bytes": 101136
     },
     {
       "name": "desktop-control",
@@ -2486,8 +1567,8 @@
       ],
       "target": "linux-arm64",
       "runtime": "python3",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/desktop-control/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/desktop-control-0.3.2-linux-arm64.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/desktop-control/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.2-linux-arm64.tar.gz",
       "sha256": "e26a05522e168c49d24a09c30eda9ee80d73f88204ad1484dc4b577504c8b925",
       "bytes": 21459
     },
@@ -2573,96 +1654,12 @@
       ],
       "target": "linux-x64",
       "runtime": "python3",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/desktop-control/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/desktop-control-0.3.2-linux-x64.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/desktop-control/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.2-linux-x64.tar.gz",
       "sha256": "e26a05522e168c49d24a09c30eda9ee80d73f88204ad1484dc4b577504c8b925",
       "bytes": 21459
     },
     {
-      "name": "clock",
-      "version": "0.1.4",
-      "description": "Tells the current time on this computer.",
-      "permissions": [],
-      "author": {
-        "name": "Lee-xeo",
-        "official": true
-      },
-      "i18n": {
-        "zh-CN": {
-          "displayName": "时钟",
-          "description": "获取这台电脑上的当前时间。"
-        },
-        "zh-TW": {
-          "displayName": "時鐘",
-          "description": "取得這台電腦上的目前時間。"
-        },
-        "ru": {
-          "displayName": "Часы",
-          "description": "Сообщает текущее время на этом компьютере."
-        },
-        "ar": {
-          "displayName": "الساعة",
-          "description": "يعرض الوقت الحالي على هذا الكمبيوتر."
-        },
-        "fa": {
-          "displayName": "ساعت",
-          "description": "زمان کنونی این رایانه را گزارش می‌دهد."
-        },
-        "ko": {
-          "displayName": "시계",
-          "description": "이 컴퓨터의 현재 시각을 알려줍니다."
-        },
-        "es": {
-          "displayName": "Reloj",
-          "description": "Informa la hora actual en este equipo."
-        },
-        "my": {
-          "displayName": "နာရီ",
-          "description": "ဤကွန်ပျူတာရှိ လက်ရှိအချိန်ကို ပြောပြသည်။"
-        },
-        "be": {
-          "displayName": "Гадзіннік",
-          "description": "Паведамляе бягучы час на гэтым камп'ютары."
-        },
-        "ps": {
-          "displayName": "ساعت",
-          "description": "په دې کمپیوټر کې اوسنی وخت ښيي."
-        },
-        "prs": {
-          "displayName": "ساعت",
-          "description": "زمان فعلی این کمپیوتر را نشان می‌دهد."
-        },
-        "am": {
-          "displayName": "ሰዓት",
-          "description": "በዚህ ኮምፒውተር ላይ ያለውን የአሁኑን ሰዓት ይነግራል።"
-        },
-        "so": {
-          "displayName": "Saacad",
-          "description": "Waxay sheegtaa waqtiga hadda ka jira kombiyuutarkan."
-        },
-        "ti": {
-          "displayName": "ሰዓት",
-          "description": "ኣብዛ ኮምፒተር ዘሎ ህሉው ሰዓት ይነግር።"
-        },
-        "fr": {
-          "displayName": "Horloge",
-          "description": "Indique l'heure actuelle sur cet ordinateur."
-        }
-      },
-      "platforms": [
-        "windows"
-      ],
-      "categories": [
-        "example"
-      ],
-      "target": "win32-arm64",
-      "runtime": "powershell",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/clock/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/clock-0.1.4-win32-arm64.tar.gz",
-      "sha256": "ba56fba9bff940d533de0c627566a63902da02744487c75f8b51557a3999a38f",
-      "bytes": 2362
-    },
-    {
       "name": "desktop-control",
       "version": "0.3.2",
       "description": "Sees the screen and uses the mouse and keyboard of this computer.",
@@ -2744,8 +1741,8 @@
       ],
       "target": "win32-arm64",
       "runtime": "powershell",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/desktop-control/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/desktop-control-0.3.2-win32-arm64.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/desktop-control/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.2-win32-arm64.tar.gz",
       "sha256": "02d29bac596070c6192b85296ed564fca7d25b772c061128da3f1f9ca3a2a038",
       "bytes": 16714
     },
@@ -2852,96 +1849,12 @@
       },
       "target": "win32-arm64",
       "runtime": "powershell",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/local-preview/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/local-preview-0.1.1-win32-arm64.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/local-preview/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/local-preview-0.1.1-win32-arm64.tar.gz",
       "sha256": "4e8e8a1e967ddd3ccd269a70a85e103d5ba0e0e6b907fa456c1112b1d2d5436d",
       "bytes": 8775
     },
     {
-      "name": "clock",
-      "version": "0.1.4",
-      "description": "Tells the current time on this computer.",
-      "permissions": [],
-      "author": {
-        "name": "Lee-xeo",
-        "official": true
-      },
-      "i18n": {
-        "zh-CN": {
-          "displayName": "时钟",
-          "description": "获取这台电脑上的当前时间。"
-        },
-        "zh-TW": {
-          "displayName": "時鐘",
-          "description": "取得這台電腦上的目前時間。"
-        },
-        "ru": {
-          "displayName": "Часы",
-          "description": "Сообщает текущее время на этом компьютере."
-        },
-        "ar": {
-          "displayName": "الساعة",
-          "description": "يعرض الوقت الحالي على هذا الكمبيوتر."
-        },
-        "fa": {
-          "displayName": "ساعت",
-          "description": "زمان کنونی این رایانه را گزارش می‌دهد."
-        },
-        "ko": {
-          "displayName": "시계",
-          "description": "이 컴퓨터의 현재 시각을 알려줍니다."
-        },
-        "es": {
-          "displayName": "Reloj",
-          "description": "Informa la hora actual en este equipo."
-        },
-        "my": {
-          "displayName": "နာရီ",
-          "description": "ဤကွန်ပျူတာရှိ လက်ရှိအချိန်ကို ပြောပြသည်။"
-        },
-        "be": {
-          "displayName": "Гадзіннік",
-          "description": "Паведамляе бягучы час на гэтым камп'ютары."
-        },
-        "ps": {
-          "displayName": "ساعت",
-          "description": "په دې کمپیوټر کې اوسنی وخت ښيي."
-        },
-        "prs": {
-          "displayName": "ساعت",
-          "description": "زمان فعلی این کمپیوتر را نشان می‌دهد."
-        },
-        "am": {
-          "displayName": "ሰዓት",
-          "description": "በዚህ ኮምፒውተር ላይ ያለውን የአሁኑን ሰዓት ይነግራል።"
-        },
-        "so": {
-          "displayName": "Saacad",
-          "description": "Waxay sheegtaa waqtiga hadda ka jira kombiyuutarkan."
-        },
-        "ti": {
-          "displayName": "ሰዓት",
-          "description": "ኣብዛ ኮምፒተር ዘሎ ህሉው ሰዓት ይነግር።"
-        },
-        "fr": {
-          "displayName": "Horloge",
-          "description": "Indique l'heure actuelle sur cet ordinateur."
-        }
-      },
-      "platforms": [
-        "windows"
-      ],
-      "categories": [
-        "example"
-      ],
-      "target": "win32-x64",
-      "runtime": "powershell",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/clock/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/clock-0.1.4-win32-x64.tar.gz",
-      "sha256": "ba56fba9bff940d533de0c627566a63902da02744487c75f8b51557a3999a38f",
-      "bytes": 2362
-    },
-    {
       "name": "desktop-control",
       "version": "0.3.2",
       "description": "Sees the screen and uses the mouse and keyboard of this computer.",
@@ -3023,8 +1936,8 @@
       ],
       "target": "win32-x64",
       "runtime": "powershell",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/desktop-control/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/desktop-control-0.3.2-win32-x64.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/desktop-control/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.2-win32-x64.tar.gz",
       "sha256": "02d29bac596070c6192b85296ed564fca7d25b772c061128da3f1f9ca3a2a038",
       "bytes": 16714
     },
@@ -3131,8 +2044,8 @@
       },
       "target": "win32-x64",
       "runtime": "powershell",
-      "icon": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/plugins/local-preview/icon.svg",
-      "archive": "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/dist/local-preview-0.1.1-win32-x64.tar.gz",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/local-preview/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/local-preview-0.1.1-win32-x64.tar.gz",
       "sha256": "4e8e8a1e967ddd3ccd269a70a85e103d5ba0e0e6b907fa456c1112b1d2d5436d",
       "bytes": 8775
     }

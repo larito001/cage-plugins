@@ -15,7 +15,7 @@ import sys
 import tarfile
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-BASE = "https://raw.githubusercontent.com/Lee-xeo/cage-plugins/main/"
+BASE = "https://raw.githubusercontent.com/larito001/cage-plugins/main/"
 FIELDS = {"name", "displayName", "version", "description", "engines", "kind", "platforms", "permissions",
           "categories", "activationEvents", "command", "icon", "contributes"}
 TARGETS = {"darwin-arm64", "darwin-x64", "linux-arm64", "linux-x64", "win32-arm64", "win32-x64"}
@@ -597,7 +597,8 @@ def pack(folder):
     raw = io.BytesIO()
     file_count, unpacked = 0, 0
     with tarfile.open(fileobj=raw, mode="w", format=tarfile.PAX_FORMAT) as archive:
-        for path in sorted(folder.rglob("*")):
+        # Match POSIX path ordering on Windows, including case and directories.
+        for path in sorted(folder.rglob("*"), key=lambda path: path.relative_to(folder).parts):
             relative = path.relative_to(folder).as_posix()
             if path.is_symlink():
                 fail(f"{folder.name}: {relative} is a link; plugins contain only files and folders")

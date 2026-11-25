@@ -1,10 +1,26 @@
 {
   "name": "desktop-control",
-  "version": "0.3.2",
-  "description": "Sees the screen and uses the mouse and keyboard of this computer.",
-  "platforms": ["windows"],
-  "permissions": ["screen", "input"],
-  "categories": ["desktop"],
-  "command": ["powershell.exe", "-NoLogo", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-File", "server.ps1"],
+  "version": "0.3.3",
+  "description": "Controls this computer's desktop with screenshots, clicks, drags, scrolling and keyboard input. Uses the actual desktop and pointer, so it can interfere with your work. Linux requires X11.",
+  "platforms": [
+    "windows"
+  ],
+  "permissions": [
+    "screen",
+    "input"
+  ],
+  "categories": [
+    "desktop"
+  ],
+  "command": [
+    "powershell.exe",
+    "-NoLogo",
+    "-NoProfile",
+    "-NonInteractive",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "server.ps1"
+  ],
   "icon": "icon.svg"
 }

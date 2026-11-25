@@ -1,14 +1,30 @@
 {
   "name": "linux-desktop",
   "displayName": "Linux Desktop",
-  "version": "0.1.2",
-  "description": "Sees the Linux desktop of the environment and uses its mouse and keyboard, to work with the programs shown there.",
+  "version": "0.1.3",
+  "description": "Controls the Linux graphical desktop inside the working environment: screenshots, clicks, drags, scrolling and keyboard input. Requires an active X11 session; it does not control the outer computer's desktop.",
   "icon": "icon.svg",
-  "engines": { "cage": ">=0.1.8" },
+  "engines": {
+    "cage": ">=0.1.8"
+  },
   "kind": "guest",
-  "permissions": ["screen", "input"],
-  "categories": ["desktop"],
+  "permissions": [
+    "screen",
+    "input"
+  ],
+  "categories": [
+    "desktop"
+  ],
   "contributes": {
-    "mcpServers": [{ "id": "desktop", "command": ["python3", "server.py", "--this-desktop"] }]
+    "mcpServers": [
+      {
+        "id": "desktop",
+        "command": [
+          "python3",
+          "server.py",
+          "--this-desktop"
+        ]
+      }
+    ]
   }
 }

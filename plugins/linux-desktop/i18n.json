@@ -1,11 +1,11 @@
 {
   "zh-CN": {
     "displayName": "Linux 桌面",
-    "description": "查看环境内的 Linux 桌面，并使用其中的鼠标和键盘来操作屏幕上显示的程序。"
+    "description": "控制运行环境内的 Linux 图形桌面：截屏、点击、拖动、滚动和键盘输入。需要已启动的 X11 桌面会话，不操作外部电脑的桌面。"
   },
   "zh-TW": {
     "displayName": "Linux 桌面",
-    "description": "檢視環境內的 Linux 桌面，並使用其中的滑鼠與鍵盤來操作畫面上顯示的程式。"
+    "description": "控制執行環境內的 Linux 圖形桌面：截圖、點擊、拖曳、捲動和鍵盤輸入。需要已啟動的 X11 桌面工作階段，不操作外部電腦的桌面。"
   },
   "ru": {
     "displayName": "Рабочий стол Linux",

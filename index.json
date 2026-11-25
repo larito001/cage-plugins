@@ -439,8 +439,8 @@
     },
     {
       "name": "computer-use",
-      "version": "0.2.7",
-      "description": "Sees and works the apps of this computer in the background, asking the user before each app, without changing the app in front.",
+      "version": "0.2.8",
+      "description": "macOS only. Reads screenshots, controls and text from a selected app window, and clicks, types and scrolls in the background by default. Access is approved per app; some actions require a foreground window.",
       "permissions": [
         "screen",
         "input"
@@ -451,11 +451,11 @@
       "i18n": {
         "zh-CN": {
           "displayName": "电脑操作",
-          "description": "在后台查看并操作这台电脑上的应用，每个应用都会先征求用户同意，不会改变用户当前在前台的应用。"
+          "description": "仅限 macOS。读取指定应用窗口的截图、控件和文字，默认在后台点击、输入和滚动。按应用授权，部分操作需要前台窗口。"
         },
         "zh-TW": {
           "displayName": "電腦操作",
-          "description": "在背景檢視並操作這台電腦上的應用程式，每個應用程式都會先徵求使用者同意，不會改變使用者目前在前景的應用程式。"
+          "description": "僅限 macOS。讀取指定應用程式視窗的截圖、控制項和文字，預設在背景點擊、輸入和捲動。按應用程式授權，部分操作需要前景視窗。"
         },
         "ru": {
           "displayName": "Работа с приложениями",
@@ -534,14 +534,14 @@
       },
       "runtime": "python3",
       "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/computer-use/icon.svg",
-      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/computer-use-0.2.7.tar.gz",
-      "sha256": "b39ed6de967031fa50bd53301ef92b779c6a153cb485bd28ddfcd1d981721387",
-      "bytes": 185826
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/computer-use-0.2.8.tar.gz",
+      "sha256": "871a7b1adb41a497cfb1df86799f81015416c4a6e1822bb4a652d14493c2177d",
+      "bytes": 185908
     },
     {
       "name": "desktop-control",
-      "version": "0.3.2",
-      "description": "Sees the screen and uses the mouse and keyboard of this computer.",
+      "version": "0.3.3",
+      "description": "Controls this computer's desktop with screenshots, clicks, drags, scrolling and keyboard input. Uses the actual desktop and pointer, so it can interfere with your work. Linux requires X11.",
       "permissions": [
         "screen",
         "input"
@@ -553,11 +553,11 @@
       "i18n": {
         "zh-CN": {
           "displayName": "桌面控制",
-          "description": "查看这台电脑的屏幕，并控制鼠标和键盘进行操作。"
+          "description": "控制本机桌面：截屏、点击、拖动、滚动和键盘输入。使用实际桌面与鼠标，可能影响你当前的操作；Linux 需 X11。"
         },
         "zh-TW": {
           "displayName": "桌面控制",
-          "description": "檢視這台電腦的螢幕，並控制滑鼠和鍵盤進行操作。"
+          "description": "控制本機桌面：截圖、點擊、拖曳、捲動和鍵盤輸入。使用實際桌面與滑鼠，可能影響你目前的操作；Linux 需 X11。"
         },
         "ru": {
           "displayName": "Управление рабочим столом",
@@ -620,9 +620,9 @@
       ],
       "runtime": "python3",
       "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/desktop-control/icon.svg",
-      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.2.tar.gz",
-      "sha256": "92997ce568ccadfa79097edff8e51026fa7ae193d1b3a887e4651bf83895da69",
-      "bytes": 16783
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.3.tar.gz",
+      "sha256": "440782e36c2b941ee6600e4c89c319e0f8a9b2d235b333393b5027b85586e5ff",
+      "bytes": 16906
     },
     {
       "name": "knowledge-memory",
@@ -729,8 +729,8 @@
     },
     {
       "name": "linux-desktop",
-      "version": "0.1.2",
-      "description": "Sees the Linux desktop of the environment and uses its mouse and keyboard, to work with the programs shown there.",
+      "version": "0.1.3",
+      "description": "Controls the Linux graphical desktop inside the working environment: screenshots, clicks, drags, scrolling and keyboard input. Requires an active X11 session; it does not control the outer computer's desktop.",
       "permissions": [
         "screen",
         "input"
@@ -742,11 +742,11 @@
       "i18n": {
         "zh-CN": {
           "displayName": "Linux 桌面",
-          "description": "查看环境内的 Linux 桌面，并使用其中的鼠标和键盘来操作屏幕上显示的程序。"
+          "description": "控制运行环境内的 Linux 图形桌面：截屏、点击、拖动、滚动和键盘输入。需要已启动的 X11 桌面会话，不操作外部电脑的桌面。"
         },
         "zh-TW": {
           "displayName": "Linux 桌面",
-          "description": "檢視環境內的 Linux 桌面，並使用其中的滑鼠與鍵盤來操作畫面上顯示的程式。"
+          "description": "控制執行環境內的 Linux 圖形桌面：截圖、點擊、拖曳、捲動和鍵盤輸入。需要已啟動的 X11 桌面工作階段，不操作外部電腦的桌面。"
         },
         "ru": {
           "displayName": "Рабочий стол Linux",
@@ -823,9 +823,9 @@
       },
       "runtime": "python3",
       "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/linux-desktop/icon.svg",
-      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/linux-desktop-0.1.2.tar.gz",
-      "sha256": "04fc2776be4a62729dd77a44aa1ccac10866407ac667e31973205ed9a766575f",
-      "bytes": 19726
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/linux-desktop-0.1.3.tar.gz",
+      "sha256": "20c41b29aae8bab37d697fc1a0895928d02b404f39cce8d2f7993a25feafee9d",
+      "bytes": 19834
     },
     {
       "name": "local-preview",
@@ -1132,8 +1132,8 @@
     },
     {
       "name": "desktop-control",
-      "version": "0.3.2",
-      "description": "Sees the screen and uses the mouse and keyboard of this computer.",
+      "version": "0.3.3",
+      "description": "Controls this computer's desktop with screenshots, clicks, drags, scrolling and keyboard input. Uses the actual desktop and pointer, so it can interfere with your work. Linux requires X11.",
       "permissions": [
         "screen",
         "input"
@@ -1145,11 +1145,11 @@
       "i18n": {
         "zh-CN": {
           "displayName": "桌面控制",
-          "description": "查看这台电脑的屏幕，并控制鼠标和键盘进行操作。"
+          "description": "控制本机桌面：截屏、点击、拖动、滚动和键盘输入。使用实际桌面与鼠标，可能影响你当前的操作；Linux 需 X11。"
         },
         "zh-TW": {
           "displayName": "桌面控制",
-          "description": "檢視這台電腦的螢幕，並控制滑鼠和鍵盤進行操作。"
+          "description": "控制本機桌面：截圖、點擊、拖曳、捲動和鍵盤輸入。使用實際桌面與滑鼠，可能影響你目前的操作；Linux 需 X11。"
         },
         "ru": {
           "displayName": "Управление рабочим столом",
@@ -1213,14 +1213,14 @@
       "target": "linux-arm64",
       "runtime": "python3",
       "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/desktop-control/icon.svg",
-      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.2-linux-arm64.tar.gz",
-      "sha256": "e26a05522e168c49d24a09c30eda9ee80d73f88204ad1484dc4b577504c8b925",
-      "bytes": 21459
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.3-linux-arm64.tar.gz",
+      "sha256": "35acf550f4621db36dc1d0fc9258cbc158e535d303178075d13ed1bab4ad9a58",
+      "bytes": 21587
     },
     {
       "name": "desktop-control",
-      "version": "0.3.2",
-      "description": "Sees the screen and uses the mouse and keyboard of this computer.",
+      "version": "0.3.3",
+      "description": "Controls this computer's desktop with screenshots, clicks, drags, scrolling and keyboard input. Uses the actual desktop and pointer, so it can interfere with your work. Linux requires X11.",
       "permissions": [
         "screen",
         "input"
@@ -1232,11 +1232,11 @@
       "i18n": {
         "zh-CN": {
           "displayName": "桌面控制",
-          "description": "查看这台电脑的屏幕，并控制鼠标和键盘进行操作。"
+          "description": "控制本机桌面：截屏、点击、拖动、滚动和键盘输入。使用实际桌面与鼠标，可能影响你当前的操作；Linux 需 X11。"
         },
         "zh-TW": {
           "displayName": "桌面控制",
-          "description": "檢視這台電腦的螢幕，並控制滑鼠和鍵盤進行操作。"
+          "description": "控制本機桌面：截圖、點擊、拖曳、捲動和鍵盤輸入。使用實際桌面與滑鼠，可能影響你目前的操作；Linux 需 X11。"
         },
         "ru": {
           "displayName": "Управление рабочим столом",
@@ -1300,14 +1300,14 @@
       "target": "linux-x64",
       "runtime": "python3",
       "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/desktop-control/icon.svg",
-      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.2-linux-x64.tar.gz",
-      "sha256": "e26a05522e168c49d24a09c30eda9ee80d73f88204ad1484dc4b577504c8b925",
-      "bytes": 21459
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.3-linux-x64.tar.gz",
+      "sha256": "35acf550f4621db36dc1d0fc9258cbc158e535d303178075d13ed1bab4ad9a58",
+      "bytes": 21587
     },
     {
       "name": "desktop-control",
-      "version": "0.3.2",
-      "description": "Sees the screen and uses the mouse and keyboard of this computer.",
+      "version": "0.3.3",
+      "description": "Controls this computer's desktop with screenshots, clicks, drags, scrolling and keyboard input. Uses the actual desktop and pointer, so it can interfere with your work. Linux requires X11.",
       "permissions": [
         "screen",
         "input"
@@ -1319,11 +1319,11 @@
       "i18n": {
         "zh-CN": {
           "displayName": "桌面控制",
-          "description": "查看这台电脑的屏幕，并控制鼠标和键盘进行操作。"
+          "description": "控制本机桌面：截屏、点击、拖动、滚动和键盘输入。使用实际桌面与鼠标，可能影响你当前的操作；Linux 需 X11。"
         },
         "zh-TW": {
           "displayName": "桌面控制",
-          "description": "檢視這台電腦的螢幕，並控制滑鼠和鍵盤進行操作。"
+          "description": "控制本機桌面：截圖、點擊、拖曳、捲動和鍵盤輸入。使用實際桌面與滑鼠，可能影響你目前的操作；Linux 需 X11。"
         },
         "ru": {
           "displayName": "Управление рабочим столом",
@@ -1387,9 +1387,9 @@
       "target": "win32-arm64",
       "runtime": "powershell",
       "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/desktop-control/icon.svg",
-      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.2-win32-arm64.tar.gz",
-      "sha256": "02d29bac596070c6192b85296ed564fca7d25b772c061128da3f1f9ca3a2a038",
-      "bytes": 16714
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.3-win32-arm64.tar.gz",
+      "sha256": "9d6955ee87cf766ab13e2706b7e142bda7fb54cbd7304153aa6c99494f36afc7",
+      "bytes": 16852
     },
     {
       "name": "local-preview",
@@ -1501,8 +1501,8 @@
     },
     {
       "name": "desktop-control",
-      "version": "0.3.2",
-      "description": "Sees the screen and uses the mouse and keyboard of this computer.",
+      "version": "0.3.3",
+      "description": "Controls this computer's desktop with screenshots, clicks, drags, scrolling and keyboard input. Uses the actual desktop and pointer, so it can interfere with your work. Linux requires X11.",
       "permissions": [
         "screen",
         "input"
@@ -1514,11 +1514,11 @@
       "i18n": {
         "zh-CN": {
           "displayName": "桌面控制",
-          "description": "查看这台电脑的屏幕，并控制鼠标和键盘进行操作。"
+          "description": "控制本机桌面：截屏、点击、拖动、滚动和键盘输入。使用实际桌面与鼠标，可能影响你当前的操作；Linux 需 X11。"
         },
         "zh-TW": {
           "displayName": "桌面控制",
-          "description": "檢視這台電腦的螢幕，並控制滑鼠和鍵盤進行操作。"
+          "description": "控制本機桌面：截圖、點擊、拖曳、捲動和鍵盤輸入。使用實際桌面與滑鼠，可能影響你目前的操作；Linux 需 X11。"
         },
         "ru": {
           "displayName": "Управление рабочим столом",
@@ -1582,9 +1582,9 @@
       "target": "win32-x64",
       "runtime": "powershell",
       "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/desktop-control/icon.svg",
-      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.2-win32-x64.tar.gz",
-      "sha256": "02d29bac596070c6192b85296ed564fca7d25b772c061128da3f1f9ca3a2a038",
-      "bytes": 16714
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/desktop-control-0.3.3-win32-x64.tar.gz",
+      "sha256": "9d6955ee87cf766ab13e2706b7e142bda7fb54cbd7304153aa6c99494f36afc7",
+      "bytes": 16852
     },
     {
       "name": "local-preview",

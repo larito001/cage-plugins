@@ -1,10 +1,20 @@
 {
   "name": "desktop-control",
-  "version": "0.3.2",
-  "description": "Sees the screen and uses the mouse and keyboard of this computer.",
-  "platforms": ["darwin"],
-  "permissions": ["screen", "input"],
-  "categories": ["desktop"],
-  "command": ["python3", "server.py"],
+  "version": "0.3.3",
+  "description": "Controls this computer's desktop with screenshots, clicks, drags, scrolling and keyboard input. Uses the actual desktop and pointer, so it can interfere with your work. Linux requires X11.",
+  "platforms": [
+    "darwin"
+  ],
+  "permissions": [
+    "screen",
+    "input"
+  ],
+  "categories": [
+    "desktop"
+  ],
+  "command": [
+    "python3",
+    "server.py"
+  ],
   "icon": "icon.svg"
 }

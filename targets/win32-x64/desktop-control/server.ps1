@@ -5,7 +5,7 @@
 # The tools are described in tools.json beside this file, which the macOS and
 # Linux versions read as well, so all three offer the same tools.
 $ErrorActionPreference = 'Stop'
-$Version = '0.3.2'
+$Version = '0.3.3'
 # The longest edge of a picture handed back, in pixels.
 $Longest = 1568
 $Subject = "the user's computer"

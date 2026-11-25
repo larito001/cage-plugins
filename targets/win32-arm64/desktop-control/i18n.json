@@ -1,10 +1,10 @@
 {
   "zh-CN": {
-    "displayName": "桌面控制",
+    "displayName": "简易截图/鼠标控制",
     "description": "控制本机桌面：截屏、点击、拖动、滚动和键盘输入。使用实际桌面与鼠标，可能影响你当前的操作；Linux 需 X11。"
   },
   "zh-TW": {
-    "displayName": "桌面控制",
+    "displayName": "簡易截圖/滑鼠控制",
     "description": "控制本機桌面：截圖、點擊、拖曳、捲動和鍵盤輸入。使用實際桌面與滑鼠，可能影響你目前的操作；Linux 需 X11。"
   },
   "ru": {

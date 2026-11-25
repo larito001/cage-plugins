@@ -1,6 +1,6 @@
 {
   "name": "desktop-control",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Controls this computer's desktop with screenshots, clicks, drags, scrolling and keyboard input. Uses the actual desktop and pointer, so it can interfere with your work. Linux requires X11.",
   "platforms": [
     "linux"
@@ -16,5 +16,6 @@
     "python3",
     "server.py"
   ],
-  "icon": "icon.svg"
+  "icon": "icon.svg",
+  "displayName": "Simple Screenshot / Mouse Control"
 }

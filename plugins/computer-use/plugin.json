@@ -1,7 +1,7 @@
 {
   "name": "computer-use",
-  "displayName": "Computer Use",
-  "version": "0.2.8",
+  "displayName": "macOS Accessibility Control",
+  "version": "0.2.9",
   "description": "macOS only. Reads screenshots, controls and text from a selected app window, and clicks, types and scrolls in the background by default. Access is approved per app; some actions require a foreground window.",
   "kind": "host",
   "engines": {

@@ -1,10 +1,10 @@
 {
   "zh-CN": {
-    "displayName": "电脑操作",
+    "displayName": "macos无障碍操作",
     "description": "仅限 macOS。读取指定应用窗口的截图、控件和文字，默认在后台点击、输入和滚动。按应用授权，部分操作需要前台窗口。"
   },
   "zh-TW": {
-    "displayName": "電腦操作",
+    "displayName": "macos無障礙操作",
     "description": "僅限 macOS。讀取指定應用程式視窗的截圖、控制項和文字，預設在背景點擊、輸入和捲動。按應用程式授權，部分操作需要前景視窗。"
   },
   "ru": {

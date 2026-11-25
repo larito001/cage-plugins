@@ -23,7 +23,7 @@ import zlib
 from array import array
 from operator import itemgetter
 
-VERSION = "0.3.3"
+VERSION = "0.3.4"
 # The longest edge of a picture handed back, in pixels.
 LONGEST = 1568
 HERE = os.path.dirname(os.path.abspath(__file__))

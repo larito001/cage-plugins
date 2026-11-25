@@ -2,7 +2,7 @@
 
 这里收录 [Cage](https://github.com/Lee-xeo/Claude-Cage) 的插件。插件让环境里的 Claude 在你的电脑上多一项能力，例如运行命令、读取屏幕或操作某个应用。每个插件是一个标准的 MCP 服务，通过标准输入输出通信。
 
-本 fork 保留主机控制、浏览器与应用连接等插件，移除了文件处理、Git、SQLite、网页抓取、时钟和系统状态的重复封装。下方清单与索引格式中的示例仅用于说明格式。
+本 fork 当前保留 Blender、电脑操作、桌面控制、Linux 桌面和语音合成五种插件。下方清单与索引格式中的示例仅用于说明格式。
 
 ## 安装插件
 
@@ -127,16 +127,11 @@ Cage 客户端会根据当前界面语言自动显示插件名称与说明（若
 
 - [`plugins/desktop-control`](plugins/desktop-control)：主机插件，查看屏幕并使用键鼠。macOS 版在 `plugins/` 下，Windows 版按目标放在 `targets/win32-x64/` 和 `targets/win32-arm64/` 下，Linux 版（X11）放在 `targets/linux-x64/` 和 `targets/linux-arm64/` 下。三个版本读取同一份工具表 `tools.json`，工具名称和参数完全相同。
 - [`plugins/linux-desktop`](plugins/linux-desktop)：环境内插件，用 `desktop-control` 的 Linux 版操作环境自己的桌面，工具名称前加 `desktop_`。
-- [`plugins/local-preview`](plugins/local-preview)：主机插件，在本机浏览器打开回环地址页面并读回标签页。
 
 基于开源 MCP 服务的插件：
 
 | 插件 | 上游与版本 | 许可证 | 运行位置 | 依赖与启动方式 |
 | --- | --- | --- | --- | --- |
-| [`browser`](plugins/browser) | [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) 0.0.86 | Apache-2.0 | 环境内 | 环境自带 Node.js 与 Chromium（`npx` 固定版本） |
-| [`chrome-devtools`](plugins/chrome-devtools) | [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp) 1.13.0 | Apache-2.0 | 环境内 | 环境自带 Node.js 与 Chromium（`launcher.py` + `npx` 固定版本） |
-| [`codex-dispatch`](plugins/codex-dispatch) | 社区自研（[@SLEEPYBQ](https://github.com/SLEEPYBQ)） | MIT | 这台电脑 | 本机 Node.js 22 与 Codex CLI |
-| [`knowledge-memory`](plugins/knowledge-memory) | [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers/tree/v2.5.0/src/memory) v2.5.0（`@modelcontextprotocol/server-memory` 2.2.1） | Apache-2.0 AND MIT | 环境内 | 环境自带 Node.js 与 Python 3（随包锁定依赖，完全离线） |
 | [`blender`](plugins/blender) | [ahujasid/blender-mcp](https://github.com/ahujasid/blender-mcp) 1.3.1 | MIT | 这台电脑 | 本机 `uv`、Blender 3.0+ 及随附的插件 |
 
 ## 索引格式

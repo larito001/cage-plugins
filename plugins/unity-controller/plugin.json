@@ -1,8 +1,8 @@
 {
   "name": "unity-controller",
   "displayName": "Unity Controller",
-  "version": "0.2.1",
-  "description": "Read scene, asset, script, component, rendering, physics, package and API information from an external Unity MCP server. Fixed target instance; write operations and code execution are blocked.",
+  "version": "0.4.0",
+  "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource.",
   "icon": "icon.svg",
   "engines": {
     "cage": ">=0.2.0"
@@ -49,6 +49,13 @@
         "title": "Bearer token (optional)",
         "type": "secret",
         "env": "UNITY_CONTROLLER_TOKEN"
+      }
+    ],
+    "views": [
+      {
+        "id": "operations",
+        "title": "允许的操作",
+        "entry": "view/index.html"
       }
     ]
   }

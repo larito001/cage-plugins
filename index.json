@@ -510,8 +510,8 @@
     },
     {
       "name": "unity-controller",
-      "version": "0.2.1",
-      "description": "Read scene, asset, script, component, rendering, physics, package and API information from an external Unity MCP server. Fixed target instance; write operations and code execution are blocked.",
+      "version": "0.4.0",
+      "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource.",
       "permissions": [
         "network",
         "files"
@@ -522,63 +522,63 @@
       "i18n": {
         "zh-CN": {
           "displayName": "Unity 控制器（环境外）",
-          "description": "读取环境外 Unity 的场景、资源、脚本、组件、渲染、物理、包和 API 信息。可查询实例标识，项目查询固定目标实例；禁止写入和代码执行。"
+          "description": "连接环境外指定的 Unity 编辑器。可列实例、检查连接，读取项目、场景层级、选中对象与组件、窗口、预制体、资源、脚本、着色器、日志、本地包、工具与 API。可搜索项目文件、校验脚本、查询测试和构建任务、检查物理碰撞、渲染、性能与内存。可创建、加载、保存、切换、关闭和修复场景，定位视图、跨场景移动对象。创建、变换、复制、删除对象，增删指定内置组件并修改属性。可编辑和保存预制体，建文件夹，复制、移动、改名或删除指定数据资源。可创建或调整材质、PNG 纹理和精灵，配置相机、镜头和混合，建模、编辑和修复网格。调整动画参数、状态、转场、图层、混合树和剪辑。配置和播放粒子与特效，编辑线条和拖尾。配置刚体、碰撞、关节、物理材质并施力。调整天空盒、雾、环境光和渲染功能，挂接 UI 文档、修改界面元素。可更换编辑工具、增删标签和层、撤销或重做、清空日志。相机截图、多视角截图与 UI 预览保存到 Assets/Screenshots。每批最多顺序执行 20 项。完整接口、动作、可读资源及参数限制见「允许的操作」。"
         },
         "zh-TW": {
           "displayName": "Unity 控制器（環境外）",
-          "description": "讀取環境外 Unity 的場景、資源、腳本、元件、渲染、物理、套件與 API 資訊。可查詢實例識別碼，專案查詢固定目標實例；禁止寫入與程式碼執行。"
+          "description": "連接環境外的 Unity。可列出實例、固定專案、查詢場景、物件與元件、資源、腳本、著色器、日誌、本機套件、建置與測試任務、物理、效能、工具和 API。可建立、載入、儲存、修復與關閉場景，編輯物件、指定內建元件、預製體、資料資源、材質、紋理、相機、網格、動畫、特效、物理、天空盒、渲染功能與 UI。可管理標籤、圖層與編輯工具，復原、重做、清除日誌，截圖存入 Assets/Screenshots，每批最多 20 項。完整動作與資源見「允许的操作」。"
         },
         "ru": {
           "displayName": "Unity Controller",
-          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+          "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource."
         },
         "ar": {
           "displayName": "Unity Controller",
-          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+          "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource."
         },
         "fa": {
           "displayName": "Unity Controller",
-          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+          "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource."
         },
         "ko": {
           "displayName": "Unity Controller",
-          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+          "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource."
         },
         "es": {
           "displayName": "Unity Controller",
-          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+          "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource."
         },
         "my": {
           "displayName": "Unity Controller",
-          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+          "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource."
         },
         "be": {
           "displayName": "Unity Controller",
-          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+          "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource."
         },
         "ps": {
           "displayName": "Unity Controller",
-          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+          "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource."
         },
         "prs": {
           "displayName": "Unity Controller",
-          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+          "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource."
         },
         "am": {
           "displayName": "Unity Controller",
-          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+          "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource."
         },
         "so": {
           "displayName": "Unity Controller",
-          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+          "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource."
         },
         "ti": {
           "displayName": "Unity Controller",
-          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+          "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource."
         },
         "fr": {
           "displayName": "Unity Controller",
-          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+          "description": "Connects to an external Unity Editor. Lists instances, reads local project, scripts, shaders, objects, resources, logs, tests, build and package status, rendering, physics and API metadata. Edits scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation, VFX, physics, UI, lighting, tags and layers. Supports scene repair, undo/redo, clearing logs, project screenshots and batches of up to 20. See Allowed operations for every tool, action and resource."
         }
       },
       "displayName": "Unity Controller",
@@ -624,13 +624,20 @@
             "type": "secret",
             "env": "UNITY_CONTROLLER_TOKEN"
           }
+        ],
+        "views": [
+          {
+            "id": "operations",
+            "title": "允许的操作",
+            "entry": "view/index.html"
+          }
         ]
       },
       "runtime": "python3",
       "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/unity-controller/icon.svg",
-      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/unity-controller-0.2.1.tar.gz",
-      "sha256": "039002fe14d0a412ba4f5bf9ebd256495882d5bf5d550ae10a6b2f753df106c0",
-      "bytes": 8927
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/unity-controller-0.4.0.tar.gz",
+      "sha256": "2b1f9afccb02e598dc8bb1497d98d8dec1d54918fb3adaa48282a659e7fe6a50",
+      "bytes": 19576
     },
     {
       "name": "desktop-control",

@@ -509,6 +509,130 @@
       "bytes": 19834
     },
     {
+      "name": "unity-controller",
+      "version": "0.2.0",
+      "description": "Read scene, asset, script, component, rendering, physics, package and API information from an external Unity MCP server. Fixed target instance; write operations and code execution are blocked.",
+      "permissions": [
+        "network",
+        "files"
+      ],
+      "author": {
+        "name": "larito001"
+      },
+      "i18n": {
+        "zh-CN": {
+          "displayName": "Unity 控制器（环境外）",
+          "description": "读取环境外 Unity 的场景、资源、脚本、组件、渲染、物理、包和 API 信息。可查询实例标识，项目查询固定目标实例；禁止写入和代码执行。"
+        },
+        "zh-TW": {
+          "displayName": "Unity 控制器（環境外）",
+          "description": "讀取環境外 Unity 的場景、資源、腳本、元件、渲染、物理、套件與 API 資訊。可查詢實例識別碼，專案查詢固定目標實例；禁止寫入與程式碼執行。"
+        },
+        "ru": {
+          "displayName": "Unity Controller",
+          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+        },
+        "ar": {
+          "displayName": "Unity Controller",
+          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+        },
+        "fa": {
+          "displayName": "Unity Controller",
+          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+        },
+        "ko": {
+          "displayName": "Unity Controller",
+          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+        },
+        "es": {
+          "displayName": "Unity Controller",
+          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+        },
+        "my": {
+          "displayName": "Unity Controller",
+          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+        },
+        "be": {
+          "displayName": "Unity Controller",
+          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+        },
+        "ps": {
+          "displayName": "Unity Controller",
+          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+        },
+        "prs": {
+          "displayName": "Unity Controller",
+          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+        },
+        "am": {
+          "displayName": "Unity Controller",
+          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+        },
+        "so": {
+          "displayName": "Unity Controller",
+          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+        },
+        "ti": {
+          "displayName": "Unity Controller",
+          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+        },
+        "fr": {
+          "displayName": "Unity Controller",
+          "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+        }
+      },
+      "displayName": "Unity Controller",
+      "categories": [
+        "developer",
+        "desktop"
+      ],
+      "kind": "host",
+      "engines": {
+        "cage": ">=0.2.0"
+      },
+      "contributes": {
+        "mcpServers": [
+          {
+            "id": "unity",
+            "command": [
+              "python",
+              "-u",
+              "server.py"
+            ]
+          }
+        ],
+        "settings": [
+          {
+            "id": "url",
+            "title": "Unity MCP URL",
+            "type": "string",
+            "env": "UNITY_CONTROLLER_URL",
+            "default": "http://127.0.0.1:8083/mcp",
+            "required": true
+          },
+          {
+            "id": "instance",
+            "title": "Unity instance (Name@hash)",
+            "description": "Use unity_controller_instances to obtain Name@hash. Required for project queries; leave empty only to list instances.",
+            "type": "string",
+            "env": "UNITY_CONTROLLER_INSTANCE",
+            "required": false
+          },
+          {
+            "id": "token",
+            "title": "Bearer token (optional)",
+            "type": "secret",
+            "env": "UNITY_CONTROLLER_TOKEN"
+          }
+        ]
+      },
+      "runtime": "python3",
+      "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/unity-controller/icon.svg",
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/unity-controller-0.2.0.tar.gz",
+      "sha256": "25062abdf4a03a9815272d7dfa0dc2214712a1a365f388dc63945a4d8b919c99",
+      "bytes": 8944
+    },
+    {
       "name": "desktop-control",
       "version": "0.3.4",
       "description": "Controls this computer's desktop with screenshots, clicks, drags, scrolling and keyboard input. Uses the actual desktop and pointer, so it can interfere with your work. Linux requires X11.",

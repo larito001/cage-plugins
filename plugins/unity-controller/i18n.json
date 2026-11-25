@@ -1,0 +1,62 @@
+{
+  "zh-CN": {
+    "displayName": "Unity 控制器（环境外）",
+    "description": "读取环境外 Unity 的场景、资源、脚本、组件、渲染、物理、包和 API 信息。可查询实例标识，项目查询固定目标实例；禁止写入和代码执行。"
+  },
+  "zh-TW": {
+    "displayName": "Unity 控制器（環境外）",
+    "description": "讀取環境外 Unity 的場景、資源、腳本、元件、渲染、物理、套件與 API 資訊。可查詢實例識別碼，專案查詢固定目標實例；禁止寫入與程式碼執行。"
+  },
+  "ru": {
+    "displayName": "Unity Controller",
+    "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+  },
+  "ar": {
+    "displayName": "Unity Controller",
+    "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+  },
+  "fa": {
+    "displayName": "Unity Controller",
+    "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+  },
+  "ko": {
+    "displayName": "Unity Controller",
+    "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+  },
+  "es": {
+    "displayName": "Unity Controller",
+    "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+  },
+  "my": {
+    "displayName": "Unity Controller",
+    "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+  },
+  "be": {
+    "displayName": "Unity Controller",
+    "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+  },
+  "ps": {
+    "displayName": "Unity Controller",
+    "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+  },
+  "prs": {
+    "displayName": "Unity Controller",
+    "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+  },
+  "am": {
+    "displayName": "Unity Controller",
+    "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+  },
+  "so": {
+    "displayName": "Unity Controller",
+    "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+  },
+  "ti": {
+    "displayName": "Unity Controller",
+    "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+  },
+  "fr": {
+    "displayName": "Unity Controller",
+    "description": "Read-only access to an external Unity MCP instance: inspect scenes, assets, scripts, components, rendering, physics, packages and APIs. Writes and code execution are blocked."
+  }
+}

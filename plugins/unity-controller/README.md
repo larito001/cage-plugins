@@ -1,4 +1,4 @@
-# Unity Controller 0.2.0
+# Unity Controller 0.2.1
 
 Host-side stdio MCP adapter for an existing Unity MCP Streamable HTTP service.
 Requires Python 3.10+ available as `python`. No startup dependencies are downloaded.

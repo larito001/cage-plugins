@@ -120,7 +120,7 @@ class Unity:
 
     def connect(self, discovery=False):
         self.info = self.rpc("initialize", {"protocolVersion": "2025-03-26", "capabilities": {},
-                            "clientInfo": {"name": "unity-controller", "version": "0.2.0"}})
+                            "clientInfo": {"name": "unity-controller", "version": "0.2.1"}})
         self.rpc("notifications/initialized", notification=True)
         raw = self.rpc("resources/read", {"uri": "mcpforunity://instances"})
         instances = []
@@ -247,7 +247,7 @@ def main():
             method = msg.get("method")
             if method == "initialize":
                 result = {"protocolVersion": "2025-03-26", "capabilities": {"tools": {}},
-                          "serverInfo": {"name": "unity-controller", "version": "0.2.0"}}
+                          "serverInfo": {"name": "unity-controller", "version": "0.2.1"}}
             elif method == "ping":
                 result = {}
             elif method == "tools/list":

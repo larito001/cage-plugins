@@ -510,78 +510,79 @@
     },
     {
       "name": "unity-controller",
-      "version": "0.6.0",
-      "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list.",
+      "version": "0.7.0",
+      "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network.",
       "permissions": [
         "network",
-        "files"
+        "files",
+        "commands"
       ],
       "author": {
         "name": "larito001"
       },
       "i18n": {
         "zh-CN": {
-          "displayName": "Unity 控制器（环境外）",
-          "description": "连接环境外指定的 Unity 项目。可按项目哈希连接，查询场景层级、对象标识、相机、碰撞、构建与渲染状态，搜索指定类型的项目资源。可创建、载入、保存、修复场景，增删对象和指定内置组件，编辑预制体、材质、纹理、网格、动画、特效、天空盒、渲染与 UI，复制、移动、改名或删除指定数据文件。支持创建动画控制器与剪辑、编辑 Transform 曲线，配置物理材质和物理设置，管理指定相机扩展、画质、光照探针、Volume 配置及 UI 面板。可撤销、重做、清空日志，截图保存于 Assets/Screenshots，每批最多 20 项。结果仅含选定的项目数值、对象 ID 和状态。文档查询与 Blender 接口禁用。另可按完整路径执行 Unity 编辑器菜单，每项都须在控制器主机确认一次。获准的菜单回调拥有编辑器的文件、网络和程序执行权限。逐项清单见「允许的操作」。"
+          "displayName": "Unity MCP",
+          "description": "通过 Streamable HTTP 连接环境外的 Unity MCP 服务。直接使用服务提供的工具、提示和资源，保留原有参数和返回内容。可用能力由目标服务决定，可能包括执行编辑器代码与菜单、修改项目、读写文件和联网。"
         },
         "zh-TW": {
-          "displayName": "Unity 控制器（環境外）",
-          "description": "連接環境外指定的 Unity 專案。以專案雜湊連線，查詢場景、物件識別碼、相機、碰撞、建置和渲染狀態。可編輯場景、物件、內建元件、預製體、資料資產、材質、紋理、網格、動畫、特效、物理、渲染和 UI。可建立動畫剪輯與控制器、編輯 Transform 曲線、管理指定相機擴充與 UI 面板、復原、重做、清除日誌。截圖存於 Assets/Screenshots，每批最多 20 項。僅回傳指定數值和狀態。文件查詢與 Blender 介面停用。通用選單按完整路徑執行，每次均須在控制器主機確認。核准的回呼具有編輯器的檔案、網路與程序權限。詳見「允许的操作」。"
+          "displayName": "Unity MCP",
+          "description": "透過 Streamable HTTP 連接環境外的 Unity MCP 服務。直接使用服務提供的工具、提示與資源，保留原有參數與回傳內容。可用能力由目標服務決定，可能包括執行編輯器程式碼與選單、修改專案、讀寫檔案與連網。"
         },
         "ru": {
-          "displayName": "Unity Controller",
-          "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list."
+          "displayName": "Unity MCP",
+          "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network."
         },
         "ar": {
-          "displayName": "Unity Controller",
-          "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list."
+          "displayName": "Unity MCP",
+          "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network."
         },
         "fa": {
-          "displayName": "Unity Controller",
-          "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list."
+          "displayName": "Unity MCP",
+          "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network."
         },
         "ko": {
-          "displayName": "Unity Controller",
-          "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list."
+          "displayName": "Unity MCP",
+          "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network."
         },
         "es": {
-          "displayName": "Unity Controller",
-          "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list."
+          "displayName": "Unity MCP",
+          "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network."
         },
         "my": {
-          "displayName": "Unity Controller",
-          "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list."
+          "displayName": "Unity MCP",
+          "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network."
         },
         "be": {
-          "displayName": "Unity Controller",
-          "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list."
+          "displayName": "Unity MCP",
+          "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network."
         },
         "ps": {
-          "displayName": "Unity Controller",
-          "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list."
+          "displayName": "Unity MCP",
+          "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network."
         },
         "prs": {
-          "displayName": "Unity Controller",
-          "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list."
+          "displayName": "Unity MCP",
+          "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network."
         },
         "am": {
-          "displayName": "Unity Controller",
-          "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list."
+          "displayName": "Unity MCP",
+          "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network."
         },
         "so": {
-          "displayName": "Unity Controller",
-          "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list."
+          "displayName": "Unity MCP",
+          "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network."
         },
         "ti": {
-          "displayName": "Unity Controller",
-          "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list."
+          "displayName": "Unity MCP",
+          "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network."
         },
         "fr": {
-          "displayName": "Unity Controller",
-          "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list."
+          "displayName": "Unity MCP",
+          "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network."
         }
       },
-      "displayName": "Unity Controller",
+      "displayName": "Unity MCP",
       "categories": [
         "developer",
         "desktop"
@@ -595,6 +596,13 @@
           {
             "id": "unity",
             "command": [
+              "uv",
+              "run",
+              "--no-project",
+              "--with",
+              "fastmcp==3.4.11",
+              "--exclude-newer",
+              "2026-11-26",
               "python",
               "-u",
               "server.py"
@@ -612,8 +620,8 @@
           },
           {
             "id": "instance",
-            "title": "Unity project hash or Name@hash",
-            "description": "Copy the project hash from unity_controller_instances. An existing exact Name@hash remains valid.",
+            "title": "Initial Unity instance (optional)",
+            "description": "Leave empty to use the service default, or enter a project hash or Name@hash. You can switch projects later with the service’s own tool.",
             "type": "string",
             "env": "UNITY_CONTROLLER_INSTANCE",
             "required": false
@@ -624,20 +632,13 @@
             "type": "secret",
             "env": "UNITY_CONTROLLER_TOKEN"
           }
-        ],
-        "views": [
-          {
-            "id": "operations",
-            "title": "允许的操作",
-            "entry": "view/index.html"
-          }
         ]
       },
-      "runtime": "python3",
+      "runtime": "uv",
       "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/unity-controller/icon.svg",
-      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/unity-controller-0.6.0.tar.gz",
-      "sha256": "ec5dad86819829f98c037d3afa413be296be0a14e3724df78d73c432e7f5d66c",
-      "bytes": 31257
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/unity-controller-0.7.0.tar.gz",
+      "sha256": "7a16c005ebea31da5ef39c24af915aa7fcd5e90afc77c435903fb01705fe5c54",
+      "bytes": 4933
     },
     {
       "name": "desktop-control",

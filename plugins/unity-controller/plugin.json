@@ -1,8 +1,8 @@
 {
   "name": "unity-controller",
-  "displayName": "Unity Controller",
-  "version": "0.6.0",
-  "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list.",
+  "displayName": "Unity MCP",
+  "version": "0.7.0",
+  "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network.",
   "icon": "icon.svg",
   "engines": {
     "cage": ">=0.2.0"
@@ -10,7 +10,8 @@
   "kind": "host",
   "permissions": [
     "network",
-    "files"
+    "files",
+    "commands"
   ],
   "categories": [
     "developer",
@@ -21,6 +22,13 @@
       {
         "id": "unity",
         "command": [
+          "uv",
+          "run",
+          "--no-project",
+          "--with",
+          "fastmcp==3.4.11",
+          "--exclude-newer",
+          "2026-11-26",
           "python",
           "-u",
           "server.py"
@@ -38,8 +46,8 @@
       },
       {
         "id": "instance",
-        "title": "Unity project hash or Name@hash",
-        "description": "Copy the project hash from unity_controller_instances. An existing exact Name@hash remains valid.",
+        "title": "Initial Unity instance (optional)",
+        "description": "Leave empty to use the service default, or enter a project hash or Name@hash. You can switch projects later with the service’s own tool.",
         "type": "string",
         "env": "UNITY_CONTROLLER_INSTANCE",
         "required": false
@@ -49,13 +57,6 @@
         "title": "Bearer token (optional)",
         "type": "secret",
         "env": "UNITY_CONTROLLER_TOKEN"
-      }
-    ],
-    "views": [
-      {
-        "id": "operations",
-        "title": "允许的操作",
-        "entry": "view/index.html"
       }
     ]
   }

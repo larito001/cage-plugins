@@ -1,7 +1,8 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>允许的操作</title><style>body{font:15px/1.6 system-ui;margin:2em;max-width:100em}table{border-collapse:collapse}td,th{padding:.5em;border:1px solid #8886;text-align:left;vertical-align:top;overflow-wrap:anywhere}code{font-size:.9em}</style>
-<main><h1>Unity 控制器 0.5.0 · 允许的操作</h1><p>连接环境外指定的 Unity 项目。可按项目哈希连接，查询场景层级、对象标识、相机、碰撞、构建与渲染状态，搜索指定类型的项目资源。可创建、载入、保存、修复场景，增删对象和指定内置组件，编辑预制体、材质、纹理、网格、动画、特效、天空盒、渲染与 UI，复制、移动、改名或删除指定数据文件。支持创建动画控制器与剪辑、编辑 Transform 曲线，配置物理材质和物理设置，管理指定相机扩展、画质、光照探针、Volume 配置及 UI 面板。可撤销、重做、清空日志，截图保存于 Assets/Screenshots，每批最多 20 项。结果仅含选定的项目数值、对象 ID 和状态。禁止读取文档、原始日志、网络配置或外部应用信息，禁止 Blender、外部服务和任意代码执行。逐项清单见「允许的操作」。</p>
+<main><h1>Unity 控制器 0.6.0 · 允许的操作</h1><p>连接环境外指定的 Unity 项目。可按项目哈希连接，查询场景层级、对象标识、相机、碰撞、构建与渲染状态，搜索指定类型的项目资源。可创建、载入、保存、修复场景，增删对象和指定内置组件，编辑预制体、材质、纹理、网格、动画、特效、天空盒、渲染与 UI，复制、移动、改名或删除指定数据文件。支持创建动画控制器与剪辑、编辑 Transform 曲线，配置物理材质和物理设置，管理指定相机扩展、画质、光照探针、Volume 配置及 UI 面板。可撤销、重做、清空日志，截图保存于 Assets/Screenshots，每批最多 20 项。结果仅含选定的项目数值、对象 ID 和状态。文档查询与 Blender 接口禁用。另可按完整路径执行 Unity 编辑器菜单，每项都须在控制器主机确认一次。获准的菜单回调拥有编辑器的文件、网络和程序执行权限。逐项清单见「允许的操作」。</p>
 <h2>读取与编辑边界</h2><p>指定项目可用对象 ID 定位。仅返回筛选后的 ID、计数、变换、数值和布尔状态。任意文本（包括对象名和路径）、图像、二进制附件、窗口和程序集清单、包源、端点及原始错误不会经控制器返回。截图仅写入项目。上游查询可能仅返回成功状态。Unity 自身加载的编辑器扩展和资源导入回调沿用该进程已有的系统权限。</p>
-<h2>调用入口</h2><ul>
+<h2>通用菜单审批</h2><p>传入完整菜单路径，每个请求在运行控制器的电脑上单独弹窗，展示配置的项目标识和菜单路径。点击「允许执行这一次」仅授权本次调用。Windows 确认按钮检查鼠标按下与释放的输入来源，普通软件模拟点击无法批准。拒绝、关闭、90 秒超时或无法显示审核窗口均不执行。这个入口独立于批量调用。直接打开文档、Blender 和已知外部程序的菜单仍会拦截；项目自定义回调按 Unity 的系统权限执行。返回的是菜单调用状态。长时间运行的导出应另查产物。</p>
+<h2>调用入口</h2><ul><li><code>unity_controller_execute_menu</code> 逐次人工审核后执行完整菜单路径。</li>
 <li><code>unity_controller_batch</code> Execute up to 20 project operations sequentially. All requests are validated before connecting; any disallowed operation rejects the entire batch.</li>
 <li><code>unity_controller_instances</code> List the hashes of connected Unity projects without selecting a project.</li>
 <li><code>unity_controller_status</code> Read the connection status and the configured Unity Editor instance.</li>

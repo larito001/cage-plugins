@@ -1,8 +1,8 @@
 {
   "name": "unity-controller",
   "displayName": "Unity Controller",
-  "version": "0.5.0",
-  "description": "Edit scenes, objects, built-in components, prefabs, data assets, materials, textures, cameras, meshes, animation clips and controllers, VFX, physics, rendering and UI in a selected external Unity project. Supports scene repair, undo/redo, clearing logs, project-local captures and batches of 20. Returns selected project numbers, IDs and flags. Blocks documents, Blender, host network and application queries, external services and arbitrary code. See the operation list for individual actions.",
+  "version": "0.6.0",
+  "description": "Edit a selected external Unity project, including scenes, objects, built-in components, assets, animation, physics, rendering and UI. Supports repair, undo/redo, clearing logs, project-local captures and batches of 20. A separate tool runs an Editor menu by path after a fresh host confirmation for that call. Approved callbacks inherit Unity's file, network and process permissions. Direct document and Blender tools remain blocked. Returns selected project IDs, numbers and flags. See the full operation list.",
   "icon": "icon.svg",
   "engines": {
     "cage": ">=0.2.0"

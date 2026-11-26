@@ -218,6 +218,76 @@ class PolicyTests(unittest.TestCase):
 
 
 
+class MenuReviewTests(unittest.TestCase):
+    def setUp(self):
+        settings = patch.dict(os.environ, {"UNITY_CONTROLLER_INSTANCE": "Example@abc"})
+        settings.start()
+        self.addCleanup(settings.stop)
+        self.path = "Tools/Example/Custom Export"
+        self.args = {"menu_path": self.path}
+
+    def test_each_dispatch_needs_its_own_decision(self):
+        reply = {"structuredContent":{"success":True,"message":"private-host"}}
+        with patch("server.menu_review.ask_once", side_effect=[True, False, True]) as review, \
+             patch.object(server.Unity,"connect") as connect, patch.object(server.Unity,"rpc",return_value=reply) as rpc:
+            for expected in (True, False, True):
+                result = server.call(server.MENU_TOOL, self.args)
+                self.assertEqual(not result.get("isError",False), expected)
+                self.assertNotIn("private-host",json.dumps(result))
+            self.assertEqual(review.call_count,3)
+            for args in review.call_args_list:
+                self.assertEqual(args.args[:2],("Example@abc",self.path))
+            self.assertEqual(connect.call_count,2)
+            self.assertEqual(rpc.call_count,2)
+            self.assertEqual(rpc.call_args.args,("tools/call",{"name":"execute_menu_item","arguments":self.args}))
+
+    def test_known_prohibited_paths_and_raw_routes(self):
+        with patch("server.menu_review.ask_once") as review, patch.object(server.Unity,"rpc") as rpc:
+            for path in ("Help/Manual", "Tools/Blender/Export", "Tools/Open Documentation", "Assets/Open",
+                         "Tools/文档/打开", "Tools/Test\nExport", "Tools/Test\u202eExport", "Tools//Export", " Tools/Export"):
+                with self.subTest(path=path), self.assertRaises(ValueError):
+                    server.call(server.MENU_TOOL,{"menu_path":path})
+            for n in (server.MENU_TOOL,"execute_menu_item"):
+                entry={"tool":n,"arguments":self.args}
+                for method, args in (("unity_controller_call",entry),("unity_controller_batch",{"calls":[entry]})):
+                    with self.assertRaises(ValueError): server.call(method,args)
+            for override in ("approved","instance","token"):
+                with self.assertRaises(ValueError):server.call(server.MENU_TOOL,{**self.args,override:True})
+            review.assert_not_called()
+            rpc.assert_not_called()
+
+    def test_cancellation_and_uncertain_dispatch(self):
+        from threading import Event
+        cancel=Event()
+        def decide(*args):
+            cancel.set()
+            return True
+        with patch("server.menu_review.ask_once",side_effect=decide), patch.object(server.Unity,"connect") as connect:
+            self.assertTrue(server.call(server.MENU_TOOL,self.args,cancel)["isError"])
+            connect.assert_not_called()
+        with patch("server.menu_review.ask_once",return_value=True), patch.object(server.Unity,"connect"), \
+             patch.object(server.Unity,"rpc",side_effect=TimeoutError("private-host")) as rpc:
+            result=server.call(server.MENU_TOOL,self.args)
+            self.assertTrue(result["isError"])
+            self.assertNotIn("private-host",json.dumps(result))
+            rpc.assert_called_once()
+
+    def test_helper_exit_and_timeout_fail_closed(self):
+        from threading import Event
+        import menu_review
+        with patch("menu_review.subprocess.Popen") as factory:
+            proc=factory.return_value.__enter__.return_value
+            for status, allowed in [(1,False),(0,False),(menu_review.APPROVED,True)]:
+                proc.poll.return_value=status
+                self.assertEqual(menu_review.ask_once("Example@abc",self.path,Event()),allowed)
+            with patch.object(menu_review,"REVIEW_SECONDS",0):
+                proc.poll.return_value=None
+                self.assertFalse(menu_review.ask_once("Example@abc",self.path,Event()))
+                proc.kill.assert_called_once()
+        with patch("menu_review.subprocess.Popen",side_effect=OSError):
+            self.assertFalse(menu_review.ask_once("Example@abc",self.path,Event()))
+
+
 class DescriptionTests(unittest.TestCase):
     def test_page_lists_every_exposed_operation(self):
         from pathlib import Path

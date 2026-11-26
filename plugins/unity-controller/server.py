@@ -5,6 +5,9 @@ from pathlib import Path
 import os
 import re
 import sys
+import threading
+
+import menu_review
 import urllib.request
 from urllib.parse import urlsplit
 
@@ -269,7 +272,7 @@ class Unity:
 
     def connect(self, discovery=False):
         self.info = self.rpc("initialize", {"protocolVersion": "2025-03-26", "capabilities": {},
-                            "clientInfo": {"name": "unity-controller", "version": "0.5.0"}})
+                            "clientInfo": {"name": "unity-controller", "version": "0.6.0"}})
         self.rpc("notifications/initialized", notification=True)
         raw = self.rpc("resources/read", {"uri": "mcpforunity://instances"})
         instances = []
@@ -444,7 +447,11 @@ def tool(name, description, properties=None, required=None):
         "type": "object", "properties": properties or {}, "required": required or [], "additionalProperties": False}}
 
 
+MENU_TOOL = "unity_controller_execute_menu"
+
 TOOLS = [
+    tool(MENU_TOOL, "Request one Unity Editor menu action by its exact path. A fresh confirmation on the controller host is required for every call. Independent of build permissions. A dispatch acknowledgment does not verify its output.",
+         {"menu_path": {"type": "string", "minLength": 3, "maxLength": 240}}, ["menu_path"]),
     tool("unity_controller_batch", "Execute up to 20 project operations sequentially. All requests are validated before connecting; any disallowed operation rejects the entire batch.",
          {"calls": {"type": "array", "minItems": 1, "maxItems": 20, "items": {
              "type": "object", "properties": {"tool": {"type": "string"}, "arguments": {"type": "object"}},
@@ -459,12 +466,18 @@ TOOLS = [
 ]
 
 
-def call(name, args):
+def call(name, args, cancelled=None):
     schema = next((t["inputSchema"] for t in TOOLS if t["name"] == name), None)
     if schema is None or not isinstance(args, dict) or set(args) - set(schema["properties"]) or set(schema["required"]) - set(args):
         raise ValueError("Unknown tool or invalid arguments")
     discovery = name == "unity_controller_instances"
     client = Unity(discovery=discovery)
+    if name == MENU_TOOL:
+        path = args["menu_path"]
+        menu_review.validate_path(path)
+        cancelled = cancelled if cancelled is not None else threading.Event()
+        if not menu_review.ask_once(client.instance, path, cancelled) or cancelled.is_set():
+            return {"isError": True, **text_result({"message": menu_review.DENIED})}
     # Validate the entire batch before any upstream call; never proxy batch_execute.
     if name == "unity_controller_batch":
         calls = args["calls"]
@@ -483,6 +496,14 @@ def call(name, args):
         if discovery:
             return text_result({"instances": client.connect(discovery=True)})
         client.connect()
+        if name == MENU_TOOL:
+            if cancelled.is_set():
+                return {"isError": True, **text_result({"message": menu_review.DENIED})}
+            try:
+                reply = client.rpc("tools/call", {"name": "execute_menu_item", "arguments": {"menu_path": path}})
+            except Exception:
+                return {"isError": True, **text_result({"message": "Dispatch outcome unknown. Check Unity before requesting another execution."})}
+            return project_reply(reply)
         if name == "unity_controller_batch":
             results, size = [], 0
             for item in calls:
@@ -513,7 +534,7 @@ def call(name, args):
                 cursor = result.get("nextCursor")
                 if not cursor:
                     break
-            return text_result({"mode": client.mode, "tools": permitted, "resources": sorted(RESOURCES),
+            return text_result({"mode": client.mode, "reviewed_menu_tool": MENU_TOOL, "tools": permitted, "resources": sorted(RESOURCES),
                                 "resource_templates": ["mcpforunity://scene/gameobject/{id}" ]})
         if name == "unity_controller_read":
             return project_reply(client.rpc("resources/read", {"uri": args["uri"]}), resource=True)
@@ -522,37 +543,73 @@ def call(name, args):
         client.close()
 
 
+def tool_result(params, cancelled=None):
+    try:
+        return call(params.get("name"), params.get("arguments", {}), cancelled)
+    except Exception:
+        # Transport errors may include the private address or response contents.
+        return {"isError": True, **text_result({"message": "Request rejected or Unity unavailable; check the permitted operations and project settings"})}
+
+
 def main():
-    for line in sys.stdin.buffer:
-        msg = {}
-        try:
-            if len(line) > LIMIT:
-                raise ValueError("Request too large")
-            msg = json.loads(line)
-            if "id" not in msg:
-                continue
-            method = msg.get("method")
-            if method == "initialize":
-                result = {"protocolVersion": "2025-03-26", "capabilities": {"tools": {}},
-                          "serverInfo": {"name": "unity-controller", "version": "0.5.0"}}
-            elif method == "ping":
-                result = {}
-            elif method == "tools/list":
-                result = {"tools": TOOLS}
-            elif method == "tools/call":
-                try:
-                    p = msg.get("params", {})
-                    result = call(p.get("name"), p.get("arguments", {}))
-                except Exception as exc:
-                    # Network exceptions may contain secret endpoints; never echo them.
-                    message = "Request rejected or Unity unavailable; check the permitted operations and project settings"
-                    result = {"isError": True, "content": [{"type": "text", "text": message}]}
-            else:
-                print(json.dumps({"jsonrpc": "2.0", "id": msg["id"], "error": {"code": -32601, "message": "Method not supported"}}), flush=True)
-                continue
-            print(json.dumps({"jsonrpc": "2.0", "id": msg["id"], "result": result}), flush=True)
-        except Exception:
-            print(json.dumps({"jsonrpc": "2.0", "id": msg.get("id"), "error": {"code": -32600, "message": "Invalid request"}}), flush=True)
+    output_lock = threading.Lock()
+    def send(request_id, **payload):
+        with output_lock:
+            print(json.dumps({"jsonrpc": "2.0", "id": request_id, **payload}), flush=True)
+
+    def reviewed_call(request_id, params, cancelled):
+        result = tool_result(params, cancelled)
+        if not cancelled.is_set():
+            send(request_id, result=result)
+
+    # Keep reading cancellation notifications and EOF while the person decides.
+    # Overlapping menu calls are refused instead of queuing stale prompts.
+    review = None
+    try:
+        for line in sys.stdin.buffer:
+            msg = {}
+            try:
+                if len(line) > LIMIT:
+                    raise ValueError("Request too large")
+                msg = json.loads(line)
+                method = msg.get("method")
+                if "id" not in msg:
+                    if method == "notifications/cancelled" and review and msg.get("params", {}).get("requestId") == review[0]:
+                        review[1].set()
+                    continue
+                request_id = msg["id"]
+                if method == "initialize":
+                    result = {"protocolVersion": "2025-03-26", "capabilities": {"tools": {}},
+                              "serverInfo": {"name": "unity-controller", "version": "0.6.0"}}
+                elif method == "ping":
+                    result = {}
+                elif method == "tools/list":
+                    result = {"tools": TOOLS}
+                elif method == "tools/call":
+                    params = msg.get("params", {})
+                    if params.get("name") == MENU_TOOL:
+                        if review and review[2].is_alive():
+                            result = {"isError": True, **text_result({"message": "A menu request is already pending"})}
+                        else:
+                            cancelled = threading.Event()
+                            worker = threading.Thread(target=reviewed_call, args=(request_id, params, cancelled), daemon=True)
+                            review = (request_id, cancelled, worker)
+                            worker.start()
+                            continue
+                    elif review and review[2].is_alive():
+                        result = {"isError": True, **text_result({"message": "Wait for the pending menu request"})}
+                    else:
+                        result = tool_result(params)
+                else:
+                    send(request_id, error={"code": -32601, "message": "Method not supported"})
+                    continue
+                send(request_id, result=result)
+            except (ValueError, TypeError, AttributeError):
+                send(msg.get("id") if isinstance(msg, dict) else None, error={"code": -32600, "message": "Invalid request"})
+    finally:
+        if review:
+            review[1].set()
+            review[2].join(timeout=1)
 
 
 if __name__ == "__main__":

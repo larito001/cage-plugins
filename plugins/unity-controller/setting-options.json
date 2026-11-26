@@ -1,0 +1,11 @@
+{
+  "instance": {
+    "endpointSetting": "url",
+    "tokenSetting": "token",
+    "resource": "mcpforunity://instances",
+    "itemsPath": [
+      "instances"
+    ],
+    "valueField": "id"
+  }
+}

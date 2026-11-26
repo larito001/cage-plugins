@@ -27,7 +27,7 @@ def make_client():
 
 
 def make_proxy(client):
-    proxy = create_proxy(client, name="Unity MCP", version="0.7.0")
+    proxy = create_proxy(client, name="Unity MCP", version="0.7.1")
     # Cage exports external tools and prompts. Surface MCP resources to those
     # clients as well, without interpreting resource URIs or their contents.
     if client.initialize_result.capabilities.resources is not None:

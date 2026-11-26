@@ -1,7 +1,7 @@
 {
   "name": "unity-controller",
   "displayName": "Unity MCP",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network.",
   "icon": "icon.svg",
   "engines": {
@@ -47,7 +47,7 @@
       {
         "id": "instance",
         "title": "Initial Unity instance (optional)",
-        "description": "Leave empty to use the service default, or enter a project hash or Name@hash. You can switch projects later with the service’s own tool.",
+        "description": "Choose a connected project or leave empty to use the service default. Refresh to discover newly connected projects.",
         "type": "string",
         "env": "UNITY_CONTROLLER_INSTANCE",
         "required": false

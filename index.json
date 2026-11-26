@@ -510,7 +510,7 @@
     },
     {
       "name": "unity-controller",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "description": "Connects to an external Unity MCP service over Streamable HTTP. Exposes the service’s tools, prompts and resources, with their native arguments and results. Available actions depend on the service and may include running editor code, executing menus, editing projects and accessing files or the network.",
       "permissions": [
         "network",
@@ -621,7 +621,7 @@
           {
             "id": "instance",
             "title": "Initial Unity instance (optional)",
-            "description": "Leave empty to use the service default, or enter a project hash or Name@hash. You can switch projects later with the service’s own tool.",
+            "description": "Choose a connected project or leave empty to use the service default. Refresh to discover newly connected projects.",
             "type": "string",
             "env": "UNITY_CONTROLLER_INSTANCE",
             "required": false
@@ -636,9 +636,9 @@
       },
       "runtime": "uv",
       "icon": "https://raw.githubusercontent.com/larito001/cage-plugins/main/plugins/unity-controller/icon.svg",
-      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/unity-controller-0.7.0.tar.gz",
-      "sha256": "7a16c005ebea31da5ef39c24af915aa7fcd5e90afc77c435903fb01705fe5c54",
-      "bytes": 4933
+      "archive": "https://raw.githubusercontent.com/larito001/cage-plugins/main/dist/unity-controller-0.7.1.tar.gz",
+      "sha256": "f04c7c9e6a5daa88ec2379cfd1c54cdcd68773f27f46f5d5ff3ea4ea992f210f",
+      "bytes": 5056
     },
     {
       "name": "desktop-control",
